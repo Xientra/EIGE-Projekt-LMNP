@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class IMPORTED_PlayerMovement : MonoBehaviour {
+public class IMPORTED_PlayerMovement : MovementBase {
 
 	public Camera playerCamera;
 	private Quaternion cameraAnchorRotationOffset = Quaternion.identity;
@@ -14,7 +14,6 @@ public class IMPORTED_PlayerMovement : MonoBehaviour {
 	public MovementSettings movementSettings;
 	public InputSettings inputSettings;
 
-
 	private Rigidbody playerRigidbody;
 	private Vector3 velocity;
 	private Quaternion targetRotation;
@@ -23,9 +22,6 @@ public class IMPORTED_PlayerMovement : MonoBehaviour {
 	private float sidewaysInput = 0;
 	private Vector2 turnInput = Vector2.zero;
 	private float jumpInput = 0;
-
-
-
 
 	private void Awake() {
 		playerRigidbody = gameObject.GetComponent<Rigidbody>();
@@ -132,17 +128,6 @@ public class IMPORTED_PlayerMovement : MonoBehaviour {
 	public void performJump(float jumpVelMultiplier) {
 		playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, movementSettings.jumpVelocity * jumpVelMultiplier, playerRigidbody.velocity.z);
 	}
-
-	bool IsGrounded() {
-
-		float avgSize = ((transform.lossyScale.x + transform.lossyScale.z) / 2) * 0.95f;
-
-		Vector3 boxSize = new Vector3(avgSize / 2, movementSettings.distanceToGround, avgSize / 2);
-
-		bool hit = Physics.BoxCast(transform.position, boxSize / 2, -transform.up, transform.rotation, transform.lossyScale.y + boxSize.y / 2, movementSettings.ground);
-
-		return hit;
-	}
 }
 
 [System.Serializable]
@@ -153,8 +138,6 @@ public class MovementSettings {
 
 	[Header("Jumping: ")]
 	public float jumpVelocity = 8;
-	public float distanceToGround = 1.3f;
-	public LayerMask ground = 0;
 	public float lowjumpForce = 10f;
 	[Range(0f, 1f)]
 	public float lowJumpMultiplier = 0.9f;
