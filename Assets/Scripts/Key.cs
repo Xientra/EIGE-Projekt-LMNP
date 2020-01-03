@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Key : MonoBehaviour {
 
+	public KeyCode keyCode;
+	public bool updateApperance;
+	public TextMeshProUGUI text;
+
 	private Vector3 originalPosition;
+	[Header("Animation:")]
 
 	[Tooltip("How far down the key moves (in world units).")]
 	public float maxDepth = 1.5f;
 
-
-	[Header("Animation:")]
 	private bool animating = false;
 	[Tooltip("How long it takes to play the animation.")]
 	public float time = 1f;
 
-	public AnimationCurve animationCurve; // ask me in discord ;-;
+	public AnimationCurve animationCurve; // a curve that holds the values at what point the key should be at what time
 
 	[Range(0f, 1f)]
 	public float pressState = 0; // how far the key has been pressed
@@ -32,6 +36,7 @@ public class Key : MonoBehaviour {
 	// starts the animation
 	public void Press() {
 		if (animating == false) {
+			//ModeManager.instace.GetCurrentGameMode().InputImpusle(keyCode);
 			StartCoroutine(PressAnimation());
 		}
 	}
@@ -67,6 +72,18 @@ public class Key : MonoBehaviour {
 	public Vector3 originalPositionPlaceHolder;
 
 	private void OnValidate() {
+
+		if (updateApperance) {
+			if (keyCode != KeyCode.None) {
+				text.text = keyCode.ToString();
+				gameObject.name = "Key \"" + keyCode.ToString() + "\"";
+			}
+			else {
+				text.text = "(X)";
+				gameObject.name = "Key \"" + keyCode.ToString() + "\"";
+			}
+		}
+
 		if (debugging) {
 			transform.position = (Vector3.down * maxDepth * pressState) + originalPositionPlaceHolder;
 		}
