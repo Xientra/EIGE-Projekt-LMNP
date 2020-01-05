@@ -5,8 +5,10 @@ using TMPro;
 
 public class Key : MonoBehaviour {
 
-	public KeyCode keyCode;
-	public bool updateApperance;
+	public string keyString;
+	[Tooltip("If this is true, that means this key can be added as ac character to a string.")]
+	public bool isCharacter = false;
+
 	public TextMeshProUGUI text;
 
 	private Vector3 originalPosition;
@@ -36,7 +38,10 @@ public class Key : MonoBehaviour {
 	// starts the animation
 	public void Press() {
 		if (animating == false) {
-			//ModeManager.instace.GetCurrentGameMode().InputImpusle(keyCode);
+			if (isCharacter) {
+				//ModeManager.instace.GetCurrentGameMode().InputImpusle(keyCode); // <------------------------ here
+				TextInTheSky.instance.textUI.text += keyString; // just for testing
+			}
 			StartCoroutine(PressAnimation());
 		}
 	}
@@ -68,19 +73,22 @@ public class Key : MonoBehaviour {
 	/* -===== Debug =====- */
 
 	[Header("Debug:")]
+	[Tooltip("If this is enabled the Name of the Object and the text on the key will be set to the keyString")]
+	public bool updateApperance;
+
 	public bool debugging = false;
 	public Vector3 originalPositionPlaceHolder;
 
 	private void OnValidate() {
 
 		if (updateApperance) {
-			if (keyCode != KeyCode.None) {
-				text.text = keyCode.ToString();
-				gameObject.name = "Key \"" + keyCode.ToString() + "\"";
+			if (keyString != "") {
+				text.text = keyString;
+				gameObject.name = "Key \"" + keyString + "\"";
 			}
 			else {
 				text.text = "(X)";
-				gameObject.name = "Key \"" + keyCode.ToString() + "\"";
+				gameObject.name = "Key \"" + keyString + "\"";
 			}
 		}
 
