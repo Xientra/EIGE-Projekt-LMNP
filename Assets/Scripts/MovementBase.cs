@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementBase : MonoBehaviour
 {
-    [Header("Settings:")]
+    [Header("Base Settings:")]
     public BaseSettings baseSettings;
 
     protected bool IsGrounded()
