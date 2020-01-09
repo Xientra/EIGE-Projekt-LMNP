@@ -5,9 +5,11 @@ using TMPro;
 
 public class Key : MonoBehaviour {
 
-	int keyCode;
+
+	public KeyCode keyCode;
 
 	public string keyString;
+
 	[Tooltip("If this is true, that means this key can be added as ac character to a string.")]
 	public bool isCharacter = false;
 
@@ -81,9 +83,11 @@ public class Key : MonoBehaviour {
 	public bool debugging = false;
 	public Vector3 originalPositionPlaceHolder;
 
+	// this is called everytime the inspector updates
 	private void OnValidate() {
 
 		if (updateApperance) {
+			/*	
 			if (keyString != "") {
 				text.text = keyString;
 				gameObject.name = "Key \"" + keyString + "\"";
@@ -92,6 +96,15 @@ public class Key : MonoBehaviour {
 				text.text = "(X)";
 				gameObject.name = "Key \"" + keyString + "\"";
 			}
+			*/
+			
+			if (keyCode != KeyCode.None) {
+				gameObject.name = "Key \"" + keyCode + "\"";
+			}
+			else {
+				gameObject.name = "Key \"" + keyCode + "\"";
+			}
+			
 		}
 
 		if (debugging) {
