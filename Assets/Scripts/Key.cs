@@ -5,6 +5,8 @@ using TMPro;
 
 public class Key : MonoBehaviour {
 
+	int keyCode;
+
 	public string keyString;
 	[Tooltip("If this is true, that means this key can be added as ac character to a string.")]
 	public bool isCharacter = false;
