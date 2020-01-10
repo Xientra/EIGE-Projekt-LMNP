@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5546822681655689965}
   - component: {fileID: 5546822681655689966}
   - component: {fileID: 6572895382585614568}
+  - component: {fileID: 1158129672469029619}
   m_Layer: 2
   m_Name: Definitely the Player
   m_TagString: Untagged
@@ -90,7 +91,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5546822681655689967}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: adfcb994088b8534fb9e1d330600ea1a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -125,29 +126,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb656ae5da9f4c749b2676d9f9074a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 5546822682279330332}
-  deathZoneHeight: -25
-  movementSettings:
-    runVelocity: 10
-    rotateVelocity: 100
-    jumpVelocity: 8
-    distanceToGround: 0.3
+  baseSettings:
+    distanceToGround: 0.2
     ground:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 256
+  playerCamera: {fileID: 5546822682279330332}
+  respawnPoint: {x: 0, y: 0, z: 0}
+  deathZoneHeight: -25
+  playerSettings:
+    runVelocity: 17
+    rotateVelocity: 100
+    maxAngle: -80
+    minAngle: 80
+    jumpVelocity: 27
+    lowJumpMultiplier: 0.7
     lowjumpForce: 10
-    lowJumpMultiplier: 0.9
     additionalFallingForce: 2
-    jumpingMovementSpeedMultiplier: 0.5
-    jumpingMovementSpeed: 1
-    dashDistance: 7
-    dashTime: 1
   inputSettings:
     FORWARD_AXIS: Vertical
     SIDEWAYS_AXIS: Horizontal
     TURN_AXIS_X: Mouse X
     TURN_AXIS_Y: Mouse Y
     JUMP_AXIS: Jump
+  preventJumping: 0
 --- !u!114 &6572895382585614568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +163,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stompKeyCode: 306
-  stompSpeed: 20
+  stompSpeed: 50
+--- !u!75 &1158129672469029619
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546822681655689967}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -30, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &5546822682279330334
 GameObject:
   m_ObjectHideFlags: 0

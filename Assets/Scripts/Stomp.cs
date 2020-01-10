@@ -6,50 +6,96 @@ using UnityEngine;
 public class Stomp : MonoBehaviour {
 
 	private Rigidbody rb;
+	private PlayerMovement playerMovement;
+
 	public KeyCode stompKeyCode = KeyCode.LeftControl;
+	private bool stompInputThisFrame = false;
 
 	public float stompSpeed = 20;
 
-	private bool stomping = false; // while this is true, vel down is stompSpeed
-	private bool pressKey = true; // once this is false the stomp will no longer press the key
+	[Header("Key Jump:")]
+	[Tooltip("How long the key as to be held down to activate a key jump.")]
+	public float keyJumpTime = 2f;
+	[Tooltip("A key jump performs a normal jump but with this as jumpForce multipier.")]
+	public float keyJumpJumpMultiplier = 2f;
+
+	[Header("Effects:")]
+	public EffectPrefabs effectPrefabs;
+
+	enum Phases { waitForInput, decending, holdingKey, releasedKey };
+	Phases currentPhase = Phases.waitForInput;
+	//private bool stomping = false; // while this is true, vel down is stompSpeed
+	//private bool pressKey = true; // once this is false the stomp will no longer press the key
 
 	private void Start() {
 		rb = GetComponent<Rigidbody>();
+		playerMovement = GetComponent<PlayerMovement>();
+		if (playerMovement == null) Debug.LogWarning("playerMovement in the Stomp Script on " + gameObject.name + "i s not assinged!");
 	}
 
 	void Update() {
-		if (stomping == false && Input.GetKeyDown(stompKeyCode)) {
-			stomping = true; 
-			pressKey = true;
+		stompInputThisFrame = Input.GetKey(stompKeyCode);
+
+		if (currentPhase == Phases.waitForInput && Input.GetKeyDown(stompKeyCode)) {
+			currentPhase = Phases.decending;
+			if (playerMovement != null) playerMovement.preventJumping = true;
 		}
 
-		Debug.DrawLine(transform.position, transform.position + Vector3.down * (transform.lossyScale.y - (rb.velocity.y * Time.fixedDeltaTime * 2)), Color.red);
+		if (currentPhase == Phases.decending) {
+			Debug.DrawLine(transform.position, transform.position + Vector3.down * (transform.lossyScale.y - (rb.velocity.y * Time.fixedDeltaTime * 2)), Color.red);
+		}
+
+		if (currentPhase == Phases.holdingKey && stompInputThisFrame == false) {
+			currentPhase = Phases.releasedKey;
+		}
 	}
 
 	private void FixedUpdate() {
 
-		if (stomping == true) {
+		if (currentPhase == Phases.decending) {
 			rb.velocity = new Vector3(rb.velocity.x, -stompSpeed, rb.velocity.z);
-		}
 
-		Key hitKey = CheckForKey();
-		if (hitKey != null) {
-			if (stomping == true && pressKey == true) {
+			// checks if a key is hit
+			Key hitKey = CheckForKey();
+			if (hitKey != null) {
 				hitKey.Press();
-				pressKey = false;
+				currentPhase = Phases.holdingKey;
 
-				StartCoroutine(StopStomping(hitKey.time, hitKey));
+				StartCoroutine(HitKey(hitKey));
 			}
 		}
 	}
 
 	// parents the player to the key for the duration of the animation to have smothe movement (can be changed if that conficts with something else)
-	private IEnumerator StopStomping(float delay, Key hitKey) {
-		stomping = false;
+	private IEnumerator HitKey(Key hitKey) {
 
 		transform.SetParent(hitKey.transform);
 
-		yield return new WaitForSeconds(delay);
+		float timeUntilPressed = hitKey.GetTimeUntilPressed();
+		float pressTime = hitKey.time;
+
+		// wait until the key is fully pressed down
+		yield return new WaitForSeconds(timeUntilPressed);
+
+		// if the player is still holding stomp then hold the key here
+		if (currentPhase == Phases.holdingKey) {
+			hitKey.hold = true;
+		}
+
+		// wait until the player releases the stomp key
+		if (currentPhase != Phases.releasedKey) yield return new WaitUntil(() => currentPhase == Phases.releasedKey);
+
+
+		hitKey.hold = false; // tells the key to animate again
+
+		// wait until the key finished it's animation
+		yield return new WaitForSeconds(pressTime - timeUntilPressed);
+
+		currentPhase = Phases.waitForInput;
+		if (playerMovement != null) {
+			playerMovement.preventJumping = false;
+			//playerMovement.performJump(keyJumpJumpMultiplier);
+		}
 
 		transform.SetParent(null);
 	}
@@ -67,7 +113,7 @@ public class Stomp : MonoBehaviour {
 		// the distance the player will travel down next frame
 		//(-rb.velocity.y * Time.fixedDeltaTime)
 
-		// casts a "thick ray" and checks all results if there are a Key 
+		// casts a "thick ray" and checks all results if there is a Key 
 		RaycastHit[] hits = Physics.SphereCastAll(transform.position, sphereRadius, Vector3.down, halfPlayerHeight + (-rb.velocity.y * Time.fixedDeltaTime));
 		foreach (RaycastHit hit in hits) {
 			Key keyHit = hit.transform.GetComponent<Key>();
@@ -79,4 +125,11 @@ public class Stomp : MonoBehaviour {
 		return null;
 	}
 
+}
+
+[System.Serializable]
+public class EffectPrefabs {
+	public GameObject start;
+	public GameObject continious;
+	public GameObject release;
 }

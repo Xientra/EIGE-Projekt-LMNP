@@ -281,7 +281,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.05, z: 0.8}
+  m_Size: {x: 3.2, y: 1.05, z: 1.6}
   m_Center: {x: 0, y: 0.525, z: 0}
 --- !u!114 &7035035378081234742
 MonoBehaviour:
@@ -335,6 +335,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   pressState: 0
+  hold: 0
   updateApperance: 1
   debugging: 0
   originalPositionPlaceHolder: {x: 0, y: 0, z: 0}

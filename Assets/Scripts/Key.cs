@@ -30,39 +30,54 @@ public class Key : MonoBehaviour {
 	[Range(0f, 1f)]
 	public float pressState = 0; // how far the key has been pressed
 
+	public bool hold = false;
+
 	void Start() {
 		originalPosition = transform.position;
 	}
 
 	// moves the key based on pressState and maxDepth
 	private void FixedUpdate() {
-		transform.position = (Vector3.down * maxDepth * pressState) + originalPosition;
+		transform.position = (Vector3.down * maxDepth * pressState /* * transform.lossyScale.y*/) + originalPosition;
 	}
 
-	// starts the animation
 	public void Press() {
 		if (animating == false) {
 			if (isCharacter) {
-				//ModeManager.instace.GetCurrentGameMode().InputImpusle(keyCode); // <------------------------ here
+				//ModeManager.instace.GetCurrentGameMode().InputImpusle(keyCode); // <------------------------ here @Nathalie
 				TextInTheSky.instance.textUI.text += keyString; // just for testing
 			}
+
+			// starts the animation
 			StartCoroutine(PressAnimation());
 		}
 	}
 
-	// sets pressState to the coresponding value in the animaiton cure over the span of (the var) time
+	/// <summary> 
+	/// Sets pressState to a range from 0 to 1 based on the animaiton cure over the span of 'time'. Can be paused with hold
+	/// </summary>
 	private IEnumerator PressAnimation() {
 		animating = true;
 
-		for (float f = 0; f < time; f += Time.fixedDeltaTime) {
-			pressState = animationCurve.Evaluate(f / time);
+		float animationTime = 0;
+		while (animationTime < time) {
+
+			pressState = animationCurve.Evaluate(animationTime / time);
 			yield return new WaitForFixedUpdate();
+
+			// stops moving if hold == true
+			if (hold == false) animationTime += Time.fixedDeltaTime;
 		}
 
+		pressState = 0; // just to be sure
 		animating = false;
 	}
 
-	// get the time from the animation curve when the key is fully pressed the first time
+	//public float timeUntilPressed { get => GetTimeUntilPressed(); }
+
+	/// <summary> 
+	/// Gets the time from the animation curve where the key is fully pressed the first time (results animationTime / 2 if none found)
+	/// </summary>
 	public float GetTimeUntilPressed() {
 		foreach (Keyframe kf in animationCurve.keys) {
 			if (kf.value == 1) {
@@ -70,7 +85,7 @@ public class Key : MonoBehaviour {
 			}
 		}
 
-		return time / 2; // just a random guess to at least have a default value
+		return time / 2;
 	}
 
 

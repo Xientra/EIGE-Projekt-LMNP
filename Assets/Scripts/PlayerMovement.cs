@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class IMPORTED_PlayerMovement : MovementBase {
+public class PlayerMovement : MovementBase {
 
 	public Camera playerCamera;
 	private Quaternion cameraAnchorRotationOffset = Quaternion.identity;
 
+	public Vector3 respawnPoint;
 	public float deathZoneHeight = -50;
 
 	[Header("Settings: ")]
-	public MovementSettings movementSettings;
+	public PlayerSettings playerSettings;
 	public InputSettings inputSettings;
 
 	private Rigidbody playerRigidbody;
@@ -23,10 +24,13 @@ public class IMPORTED_PlayerMovement : MovementBase {
 	private Vector2 turnInput = Vector2.zero;
 	private float jumpInput = 0;
 
+	public bool preventJumping = false;
+
 	private void Awake() {
 		playerRigidbody = gameObject.GetComponent<Rigidbody>();
 
 		if (playerCamera == null) playerCamera = GetComponentInChildren<Camera>();
+		if (respawnPoint == null) respawnPoint = transform.position;
 
 		targetRotation = transform.rotation;
 	}
@@ -69,15 +73,15 @@ public class IMPORTED_PlayerMovement : MovementBase {
 
 		if (inputSettings.SIDEWAYS_AXIS.Length != 0) sidewaysInput = Input.GetAxis(inputSettings.SIDEWAYS_AXIS);
 
-		if (inputSettings.TURN_AXIS_X.Length != 0) turnInput.x = Input.GetAxis(inputSettings.TURN_AXIS_X);
-		if (inputSettings.TURN_AXIS_Y.Length != 0) turnInput.y = -Input.GetAxis(inputSettings.TURN_AXIS_Y);
+		if (inputSettings.TURN_AXIS_X.Length != 0) turnInput.x = Input.GetAxisRaw(inputSettings.TURN_AXIS_X);
+		if (inputSettings.TURN_AXIS_Y.Length != 0) turnInput.y = -Input.GetAxisRaw(inputSettings.TURN_AXIS_Y);
 
 		if (inputSettings.JUMP_AXIS.Length != 0) jumpInput = Input.GetAxisRaw(inputSettings.JUMP_AXIS);
 	}
 
 	void Move() {
-		velocity.z = forwardInput * movementSettings.runVelocity;
-		velocity.x = sidewaysInput * movementSettings.runVelocity;
+		velocity.z = forwardInput * playerSettings.runVelocity;
+		velocity.x = sidewaysInput * playerSettings.runVelocity;
 
 		velocity.y = playerRigidbody.velocity.y;
 		playerRigidbody.velocity = transform.TransformDirection(velocity);
@@ -85,39 +89,44 @@ public class IMPORTED_PlayerMovement : MovementBase {
 
 	void Turn() {
 		if (turnInput.x != 0f) {
-			targetRotation *= Quaternion.AngleAxis(movementSettings.rotateVelocity * turnInput.x * Time.deltaTime, Vector3.up);
+			targetRotation *= Quaternion.AngleAxis(playerSettings.rotateVelocity * turnInput.x * Time.deltaTime, Vector3.up);
 		}
 		transform.rotation = targetRotation;
 
 		if (turnInput.y != 0f) {
-			cameraAnchorRotationOffset *= Quaternion.AngleAxis(movementSettings.rotateVelocity * turnInput.y * Time.deltaTime, Vector3.right);
+			cameraAnchorRotationOffset *= Quaternion.AngleAxis(playerSettings.rotateVelocity * turnInput.y * Time.deltaTime, Vector3.right);
+
+			/*
+			Vector3 eulerRot = cameraAnchorRotationOffset.eulerAngles;
+			Debug.Log(eulerRot.x - 360);
+			if (eulerRot.x < playerSettings.maxAngle + 360) {
+				cameraAnchorRotationOffset = Quaternion.Euler(playerSettings.maxAngle, eulerRot.y, eulerRot.z);
+			}
+			if (eulerRot.x + 360 > playerSettings.minAngle + 360) {
+				cameraAnchorRotationOffset = Quaternion.Euler(playerSettings.minAngle, eulerRot.y, eulerRot.z);
+			}
+			*/
 		}
 	}
 
 	void UpdateCameraAnchor() {
-
 		playerCamera.transform.rotation = transform.rotation * cameraAnchorRotationOffset;
 	}
 
 	void Jump() {
-		bool _isGrounded = IsGrounded();
+		if (preventJumping == false) {
+			bool _isGrounded = IsGrounded();
 
-		// if jump is pressed player is on ground
-		if (jumpInput != 0f && _isGrounded) {
-			performJump();
-		}
+			// if jump is pressed player is on ground
+			if (jumpInput != 0f && _isGrounded) {
+				performJump();
+			}
 
-		// this is still jumping but if jumping is not pressed add lowjumpForce
-		if (jumpInput == 0 && _isGrounded == false && !(playerRigidbody.velocity.y < 0)) {
-			// playerRigidbody.AddForce(-transform.up * movementSettings.lowjumpForce);
-			playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerRigidbody.velocity.y * movementSettings.lowJumpMultiplier, playerRigidbody.velocity.z);
-		}
-
-		if (_isGrounded == true) {
-			movementSettings.jumpingMovementSpeed = 1;
-		}
-		else {
-			movementSettings.jumpingMovementSpeed = movementSettings.jumpingMovementSpeedMultiplier;
+			// this is still jumping but if jumping is not pressed add lowjumpForce
+			if (jumpInput == 0 && _isGrounded == false && playerRigidbody.velocity.y > 0) {
+				//playerRigidbody.AddForce(Vector3.down * movementSettings.lowjumpForce);
+				playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerRigidbody.velocity.y * playerSettings.lowJumpMultiplier, playerRigidbody.velocity.z);
+			}
 		}
 	}
 
@@ -126,26 +135,30 @@ public class IMPORTED_PlayerMovement : MovementBase {
 	}
 
 	public void performJump(float jumpVelMultiplier) {
-		playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, movementSettings.jumpVelocity * jumpVelMultiplier, playerRigidbody.velocity.z);
+		playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerSettings.jumpVelocity * jumpVelMultiplier, playerRigidbody.velocity.z);
 	}
 }
 
 [System.Serializable]
-public class MovementSettings {
-	public float runVelocity = 12;
+public class PlayerSettings {
 
+	public float runVelocity = 15;
+
+	[Header("Rotation:")]
 	public float rotateVelocity = 100;
 
-	[Header("Jumping: ")]
+	public float maxAngle = -80;
+	public float minAngle = 80;
+
+	[Header("Jumping:")]
 	public float jumpVelocity = 8;
-	public float lowjumpForce = 10f;
+
+	[Tooltip("")]
 	[Range(0f, 1f)]
 	public float lowJumpMultiplier = 0.9f;
-	public float additionalFallingForce = 2f;
-	[Range(0f, 1f)]
-	public float jumpingMovementSpeedMultiplier = 0.5f;
-	[HideInInspector]
-	public float jumpingMovementSpeed = 1;
+
+	[Tooltip("")]
+	public float lowjumpFallingForce = 2f;
 }
 
 [System.Serializable]
