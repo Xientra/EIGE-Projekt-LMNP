@@ -146,11 +146,6 @@ public class MovementSettings {
 	public float jumpingMovementSpeedMultiplier = 0.5f;
 	[HideInInspector]
 	public float jumpingMovementSpeed = 1;
-
-	[Header("Dashing: ")]
-
-	public float dashDistance = 7f;
-	public float dashTime = 1f;
 }
 
 [System.Serializable]
