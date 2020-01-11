@@ -22,6 +22,6 @@ public class MovementBase : MonoBehaviour
 [System.Serializable]
 public class BaseSettings
 {
-    public float distanceToGround = 1.3f;
-    public LayerMask ground = 0;
+    public float distanceToGround = 0.3f;
+    public LayerMask ground = 8;
 }
