@@ -141,8 +141,7 @@ MonoBehaviour:
     minAngle: 80
     jumpVelocity: 27
     lowJumpMultiplier: 0.7
-    lowjumpForce: 10
-    additionalFallingForce: 2
+    lowjumpFallingForce: 2
   inputSettings:
     FORWARD_AXIS: Vertical
     SIDEWAYS_AXIS: Horizontal
@@ -164,6 +163,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stompKeyCode: 306
   stompSpeed: 50
+  keyJumpTime: 2
+  keyJumpJumpMultiplier: 2
+  effectPrefabs:
+    keyJumpReady: {fileID: 2562712702252033866, guid: df1b9852c17c65d4da944bae4c3b4fe1,
+      type: 3}
+    keyJumpContinious: {fileID: 7517004386166004648, guid: 7814545c78f413c4bb4231253043a50a,
+      type: 3}
+    keyJumpRelease: {fileID: 2562712702252033866, guid: df1b9852c17c65d4da944bae4c3b4fe1,
+      type: 3}
 --- !u!75 &1158129672469029619
 ConstantForce:
   m_ObjectHideFlags: 0

@@ -135,7 +135,17 @@ public class PlayerMovement : MovementBase {
 	}
 
 	public void performJump(float jumpVelMultiplier) {
+		Debug.Log(playerSettings.jumpVelocity * jumpVelMultiplier);
 		playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerSettings.jumpVelocity * jumpVelMultiplier, playerRigidbody.velocity.z);
+	}
+
+	public void SetPreventJumpingAfterDelay(bool value, float delay) {
+		StartCoroutine(SetPreventJumping(value, delay));
+	}
+
+	private IEnumerator SetPreventJumping(bool value, float delay) {
+		yield return new WaitForSeconds(delay);
+		preventJumping = value;
 	}
 }
 

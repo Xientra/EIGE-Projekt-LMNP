@@ -17,7 +17,9 @@ public class Stomp : MonoBehaviour {
 	[Tooltip("How long the key as to be held down to activate a key jump.")]
 	public float keyJumpTime = 2f;
 	[Tooltip("A key jump performs a normal jump but with this as jumpForce multipier.")]
-	public float keyJumpJumpMultiplier = 2f;
+	public float keyJumpJumpMultiplier = 3f;
+	[Tooltip("How long the player can not jump after performing a keyJump to not overwrite the keyJump.")]
+	public float preventJumpTime = 0.2f;
 
 	[Header("Effects:")]
 	public EffectPrefabs effectPrefabs;
@@ -45,6 +47,7 @@ public class Stomp : MonoBehaviour {
 			Debug.DrawLine(transform.position, transform.position + Vector3.down * (transform.lossyScale.y - (rb.velocity.y * Time.fixedDeltaTime * 2)), Color.red);
 		}
 
+		// changed the Phase if the player released stomp, while holding the Key down
 		if (currentPhase == Phases.holdingKey && stompInputThisFrame == false) {
 			currentPhase = Phases.releasedKey;
 		}
@@ -82,9 +85,24 @@ public class Stomp : MonoBehaviour {
 			hitKey.hold = true;
 		}
 
-		// wait until the player releases the stomp key
-		if (currentPhase != Phases.releasedKey) yield return new WaitUntil(() => currentPhase == Phases.releasedKey);
+		float keyJumpTimeStamp = Time.time + keyJumpTime;
+		bool willKeyJump = false;
 
+		GameObject continiousEffect = null;
+
+		// wait until the player releases the stomp key
+		while (currentPhase != Phases.releasedKey) {
+			yield return new WaitForEndOfFrame();
+
+			if (keyJumpTimeStamp < Time.time && willKeyJump == false) {
+				willKeyJump = true;
+
+				// creates visual effects
+				Destroy(Instantiate(effectPrefabs.keyJumpReady, transform.position, Quaternion.identity), 5f);
+				continiousEffect = Instantiate(effectPrefabs.keyJumpContinious, transform);
+			}
+		}
+		//if (currentPhase != Phases.releasedKey) yield return new WaitUntil(() => currentPhase == Phases.releasedKey);
 
 		hitKey.hold = false; // tells the key to animate again
 
@@ -94,7 +112,25 @@ public class Stomp : MonoBehaviour {
 		currentPhase = Phases.waitForInput;
 		if (playerMovement != null) {
 			playerMovement.preventJumping = false;
-			//playerMovement.performJump(keyJumpJumpMultiplier);
+
+			// On KeyJump
+			if (willKeyJump == true) {
+				
+				// prevents the player from jumping for a few milliseconds so he cant override the keyJump
+				playerMovement.preventJumping = true;
+				playerMovement.SetPreventJumpingAfterDelay(false, preventJumpTime);
+
+			
+				// tells the player to jump
+				playerMovement.performJump(keyJumpJumpMultiplier);
+
+
+				// ends previous visual effect and creates new
+				continiousEffect.GetComponentInChildren<ParticleSystem>().Stop();
+				Destroy(continiousEffect, 3);
+
+				Destroy(Instantiate(effectPrefabs.keyJumpReady, transform.position, Quaternion.identity), 5f);
+			}
 		}
 
 		transform.SetParent(null);
@@ -129,7 +165,7 @@ public class Stomp : MonoBehaviour {
 
 [System.Serializable]
 public class EffectPrefabs {
-	public GameObject start;
-	public GameObject continious;
-	public GameObject release;
+	public GameObject keyJumpReady;
+	public GameObject keyJumpContinious;
+	public GameObject keyJumpRelease;
 }
