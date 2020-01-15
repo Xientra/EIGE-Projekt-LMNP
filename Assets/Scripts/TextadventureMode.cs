@@ -20,9 +20,6 @@ public class TextadventureMode : CameraManagement, GameMode {
     [SerializeField]
     private int lastPage = 2;
 
-    [SerializeField]
-    private string cameraName = "TextadventureCam";
-
     // other variables
     private string input = "";
 
@@ -81,11 +78,6 @@ public class TextadventureMode : CameraManagement, GameMode {
         // valid next page
         if ((nextPage >= 0) && (nextPage < lastPage)) {
             readFile(nextPage);
-
-            // update entire canvas
-            updateCanvas("input");
-            updateCanvas("page");
-            updateCanvas("answers");
         }
     }
 
@@ -107,6 +99,11 @@ public class TextadventureMode : CameraManagement, GameMode {
 
             answersString += parts[0] + "\n";
         }
+
+        // update entire canvas
+        updateCanvas("input");
+        updateCanvas("page");
+        updateCanvas("answers");
     }
 
     public void ProcessInput(KeyCode keyCode) {
@@ -130,11 +127,11 @@ public class TextadventureMode : CameraManagement, GameMode {
     }
 
     public void SetupScene() {
-        TurnOnCamera(cameraName);
+        TurnOnCamera();
         readFile(firstPage);
     }
 
     public void CloseScene() {
-        TurnOffCamera(cameraName);
+        TurnOffCamera();
     }
 }

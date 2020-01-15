@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class CameraManagement : MonoBehaviour {
 
+    [SerializeField]
+    private Camera cam;
+
     // ingame screen-object
     [SerializeField]
     private RenderTexture target;
-
-    // all gamemode cameras
-    [SerializeField]
-    private Camera[] cameras = new Camera[3];
     
-    protected void TurnOnCamera(string name) {
-        Camera cam = FindCamera(name);
-
+    protected void TurnOnCamera() {
         if (cam == null) {
             Debug.LogError("Camera not found");
 
@@ -24,26 +21,12 @@ public class CameraManagement : MonoBehaviour {
         }
     }
 
-    protected void TurnOffCamera(string name) {
-        Camera cam = FindCamera(name);
-
+    protected void TurnOffCamera() {
         if (cam == null) {
             Debug.LogError("Camera not found");
 
         } else {
             cam.enabled = false;
         }
-    }
-
-    private Camera FindCamera(string name) {
-        // find camera by name
-        foreach (Camera cam in cameras) {
-            if (cam != null && cam.name == name) {
-                return cam;
-            }
-        }
-
-        // not found
-        return null;
     }
 }
