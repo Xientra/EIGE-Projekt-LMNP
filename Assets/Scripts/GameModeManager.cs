@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class GameModeManager : MonoBehaviour {
 
-    GameMode currentMode;
+    private GameMode[] modes = { new TextadventureMode(), new MusicalheroMode() };
+    private GameMode current;
+    private int index = -1;
+
+    public void NextMode() { 
+        if (index < modes.Length) {
+            SetMode(modes[++index]);
+        }
+    }
 
     public void SetMode(GameMode mode) {
-        currentMode.CloseScene();
-        currentMode = mode;
-        currentMode.SetupScene();
+        current.CloseScene();
+        current = mode;
+        current.SetupScene();
     }
 
     public GameMode GetMode() {
-        return currentMode;
+        return current;
     }
 }
