@@ -1,0 +1,9 @@
+You find yourself in a deserted subway station. 
+Yet, you appear to have no recollection of how you got here whatsoever - did you hit your head? 
+It's the middle of the night, judging by the sign telling you that the last ride home passed mere minutes ago. 
+You're also freezing, which angers you, as if dealing with the utter absence of daylight wasn't enough.
+A flickering beacon barely lights up two hallways in front of you - which one do you take?
+#
+left>2
+#
+right>2
