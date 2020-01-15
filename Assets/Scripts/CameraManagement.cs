@@ -6,7 +6,7 @@ public class CameraManagement : MonoBehaviour {
 
     // ingame screen-object
     [SerializeField]
-    private RenderTexture target; 
+    private RenderTexture target;
     
     protected void TurnOnCamera(string name) {
         Camera cam = FindCamera(name);
