@@ -6,13 +6,19 @@ public class GameModeManager : MonoBehaviour {
 
     GameMode currentMode;
 
-    public void setMode(GameMode mode) {
-        currentMode.closeScene();
-        currentMode = mode;
-        currentMode.setupScene();
+    // TODO outsource
+    private void Start() {
+       currentMode = new TextadventureMode();
+       currentMode.SetupScene();
     }
 
-    public GameMode getMode() {
+    public void SetMode(GameMode mode) {
+        currentMode.CloseScene();
+        currentMode = mode;
+        currentMode.SetupScene();
+    }
+
+    public GameMode GetMode() {
         return currentMode;
     }
 }
