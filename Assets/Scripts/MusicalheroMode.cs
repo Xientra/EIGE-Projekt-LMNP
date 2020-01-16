@@ -19,4 +19,8 @@ public class MusicalheroMode : CameraManagement, GameMode {
     public void CloseScene() {
         
     }
+
+    override public string ToString() {
+        return "MusicalheroMode";
+    }
 }

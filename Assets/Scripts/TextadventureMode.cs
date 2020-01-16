@@ -18,10 +18,10 @@ public class TextadventureMode : CameraManagement, GameMode {
     [SerializeField]
     private int firstPage = 1;
     [SerializeField]
-    private int lastPage = 2;
+    private int lastPage = 5;
 
     // other variables
-    private string input = "";
+    private string inputString = "";
 
     private string pageString;
     private TextAsset page;
@@ -33,13 +33,13 @@ public class TextadventureMode : CameraManagement, GameMode {
     List<KeyCode> validKeys = new List<KeyCode>() {
         KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z,
         KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9,
-        KeyCode.Space, KeyCode.Period, KeyCode.Comma, KeyCode.Minus, KeyCode.Exclaim
+        KeyCode.Space, KeyCode.Period, KeyCode.Comma, KeyCode.Minus, KeyCode.Exclaim, KeyCode.Question
     };
 
     private void updateCanvas(string textobj) {
         switch (textobj) {
             case "input":
-                inputText.text = input;
+                inputText.text = inputString;
                 break;
             case "page":
                 pageText.text = pageString;
@@ -51,12 +51,12 @@ public class TextadventureMode : CameraManagement, GameMode {
     }
 
     public void addLetter(char letter) {
-        input += letter;
+        inputString += letter;
         updateCanvas("input");
     }
     public void removeLetter() {
-        if (input.Length >= 1) {
-            input = input.Remove(input.Length - 1);
+        if (inputString.Length >= 1) {
+            inputString = inputString.Remove(inputString.Length - 1);
             updateCanvas("input");
         }
     }
@@ -64,7 +64,7 @@ public class TextadventureMode : CameraManagement, GameMode {
     // returns next page for correct input, otherwise -1
     private int evaluateInput() {
         foreach (KeyValuePair<string, int> answer in answers) {
-            if (input.Equals(answer.Key)) {
+            if (inputString == answer.Key) {
                 return answer.Value;
             }
         }
@@ -73,16 +73,17 @@ public class TextadventureMode : CameraManagement, GameMode {
 
     public void nextPage() {
         int nextPage = evaluateInput();
-        input = "";
+        inputString = "";
 
         // valid next page
         if ((nextPage >= 0) && (nextPage < lastPage)) {
+            Debug.Log("here");
             readFile(nextPage);
         }
     }
 
     private void readFile(int nr) {
-        page = Resources.Load("Textadventure/page" + nr + ".txt") as TextAsset;
+        page = Resources.Load("Textadventure/page" + nr) as TextAsset;
 
         // split contents of file
         string[] content = page.text.Split('#');
@@ -91,11 +92,17 @@ public class TextadventureMode : CameraManagement, GameMode {
         content = content.Skip(1).ToArray();
 
         // reset answers
-        answers = new Dictionary<string, int>();
+        answers.Clear();
+        answersString = "";
 
         foreach (string answer in content) {
             string[] parts = answer.Split('>');
-            answers.Add(parts[0], int.Parse(parts[1]));
+
+            int nextPage;
+            if (!int.TryParse(parts[1].Trim(), out nextPage)) {
+                Debug.Log("unparseable nextPage");
+            }
+            answers.Add(parts[0].ToUpper().Trim(), nextPage);
 
             answersString += parts[0] + "\n";
         }
@@ -118,11 +125,14 @@ public class TextadventureMode : CameraManagement, GameMode {
             if (keyCode == KeyCode.Space) {
                 addLetter(' ');
             }
+            if (keyCode == KeyCode.Question) {
+                addLetter('?');
+            } else {
+                char letter = char.Parse(keyCode.ToString());
+                addLetter(letter);
+            }
 
             // KeyCode.Period, KeyCode.Comma, KeyCode.Minus, KeyCode.Exclaim
-
-            char letter = char.Parse(keyCode.ToString());
-            addLetter(letter);
         }
     }
 
@@ -133,5 +143,9 @@ public class TextadventureMode : CameraManagement, GameMode {
 
     public void CloseScene() {
         TurnOffCamera();
+    }
+
+    override public string ToString() {
+        return "TextadventureMode";
     }
 }

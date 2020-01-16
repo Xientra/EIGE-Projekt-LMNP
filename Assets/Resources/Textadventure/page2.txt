@@ -1,0 +1,5 @@
+It's the middle of the night, judging by the sign telling you that the last ride home passed mere minutes ago. 
+#
+What now?>4
+#
+Look around.>3
