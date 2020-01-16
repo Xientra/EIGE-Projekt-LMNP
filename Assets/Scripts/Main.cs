@@ -13,14 +13,13 @@ public class Main : MonoBehaviour {
         modeManager = new GameModeManager(transform.GetComponents<GameMode>());
         modeManager.SelectMode(orderOfModes[0]);
 
-        //testing
-        modeManager.GetMode().ProcessInput(KeyCode.M);
-        modeManager.GetMode().ProcessInput(KeyCode.A);
-        modeManager.GetMode().ProcessInput(KeyCode.Y);
-        modeManager.GetMode().ProcessInput(KeyCode.B);
-        modeManager.GetMode().ProcessInput(KeyCode.E);
-        modeManager.GetMode().ProcessInput(KeyCode.Question);
-        modeManager.GetMode().ProcessInput(KeyCode.Return);
-
+        // testing-sequence
+        modeManager.PassInput(KeyCode.M);
+        modeManager.PassInput(KeyCode.A);
+        modeManager.PassInput(KeyCode.Y);
+        modeManager.PassInput(KeyCode.B);
+        modeManager.PassInput(KeyCode.E);
+        modeManager.PassInput(KeyCode.Question);
+        modeManager.PassInput(KeyCode.Return);
     }
 }

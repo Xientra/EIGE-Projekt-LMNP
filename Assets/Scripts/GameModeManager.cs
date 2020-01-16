@@ -51,4 +51,8 @@ public class GameModeManager : MonoBehaviour {
     public GameMode GetMode() {
         return current;
     }
+
+    public void PassInput(KeyCode keyCode) {
+        current.ProcessInput(keyCode);
+    }
 }
