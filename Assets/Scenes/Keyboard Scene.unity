@@ -457,7 +457,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.49e-42, y: 1.05e-43, z: 3e-45, w: 0}
+  m_BoundingSphereOverride: {x: 1.77e-42, y: 1.05e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -838,6 +838,16 @@ PrefabInstance:
         type: 3}
       propertyPath: movementSettings.lowJumpMultiplier
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546822681655689966, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: playerSettings.shortHopTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546822681655689966, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: playerSettings.shortHopForce
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689967, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}

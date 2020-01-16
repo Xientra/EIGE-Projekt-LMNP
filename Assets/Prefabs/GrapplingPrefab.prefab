@@ -94,19 +94,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5602157909070238787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96bfaec51c5bf8d49a1eb390e15d6c88, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c5683ca99fffa547b1d1b8214d1bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingSpeed: 4
-  retractingSpeed: 6
-  maxhookDistance: 10
-  startPullingSpeed: 100
-  maxPullingSpeed: 100
-  growthExponent: 0.1
-  player: {fileID: 0}
-  startPosition: {x: 0, y: 0, z: 0}
-  pullingSpeed: 150
-  state: 0
 --- !u!135 &988356853383227134
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -193,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e90772c7a040038439f8de9a5780e522, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -271,7 +261,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e90772c7a040038439f8de9a5780e522, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -349,7 +339,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e90772c7a040038439f8de9a5780e522, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -427,7 +417,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e90772c7a040038439f8de9a5780e522, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
