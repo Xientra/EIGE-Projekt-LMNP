@@ -17,6 +17,8 @@ public class Main : MonoBehaviour {
         modeManager.PassInput(KeyCode.M);
         modeManager.PassInput(KeyCode.A);
         modeManager.PassInput(KeyCode.Y);
+        modeManager.PassInput(KeyCode.D);
+        modeManager.PassInput(KeyCode.Backspace);
         modeManager.PassInput(KeyCode.B);
         modeManager.PassInput(KeyCode.E);
         modeManager.PassInput(KeyCode.Question);

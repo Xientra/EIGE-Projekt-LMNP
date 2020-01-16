@@ -33,7 +33,7 @@ public class TextadventureMode : CameraManagement, GameMode {
     List<KeyCode> validKeys = new List<KeyCode>() {
         KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z,
         KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9,
-        KeyCode.Space, KeyCode.Period, KeyCode.Comma, KeyCode.Minus, KeyCode.Exclaim, KeyCode.Question
+        KeyCode.Space, KeyCode.Question, KeyCode.Exclaim, KeyCode.Period, KeyCode.Comma
     };
 
     private void updateCanvas(string textobj) {
@@ -121,18 +121,28 @@ public class TextadventureMode : CameraManagement, GameMode {
             removeLetter();
         }
         else if (validKeys.Contains(keyCode)) {
-
-            if (keyCode == KeyCode.Space) {
-                addLetter(' ');
+            switch (keyCode) {
+                case KeyCode.Space:
+                    addLetter(' ');
+                    break;
+                case KeyCode.Question:
+                    addLetter('?');
+                    break;
+                case KeyCode.Exclaim:
+                    addLetter('!');
+                    break;
+                case KeyCode.Period:
+                    addLetter('.');
+                    break;
+                case KeyCode.Comma:
+                    addLetter(',');
+                    break;
+                default:
+                    char letter = char.Parse(keyCode.ToString());
+                    addLetter(letter);
+                    break;
             }
-            if (keyCode == KeyCode.Question) {
-                addLetter('?');
-            } else {
-                char letter = char.Parse(keyCode.ToString());
-                addLetter(letter);
-            }
-
-            // KeyCode.Period, KeyCode.Comma, KeyCode.Minus, KeyCode.Exclaim
+            // TODO numbers?
         }
     }
 
