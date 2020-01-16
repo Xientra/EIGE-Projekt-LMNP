@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5476873940901654660}
   - component: {fileID: 5546822681655689965}
   - component: {fileID: 5546822681655689966}
+  - component: {fileID: 6054471195276114539}
   - component: {fileID: 6572895382585614568}
   - component: {fileID: 1158129672469029619}
   m_Layer: 2
@@ -141,8 +142,8 @@ MonoBehaviour:
     minAngle: 80
     jumpVelocity: 27
     lowJumpMultiplier: 0.7
-    lowerLowJumpTime: 0.15
-    lowerLowJumpForce: 10
+    shortHopTime: 0.15
+    shortHopForce: 10
   inputSettings:
     FORWARD_AXIS: Vertical
     SIDEWAYS_AXIS: Horizontal
@@ -150,6 +151,32 @@ MonoBehaviour:
     TURN_AXIS_Y: Mouse Y
     JUMP_AXIS: Jump
   preventJumping: 0
+--- !u!114 &6054471195276114539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546822681655689967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d100b66404d82b44a11c22819217220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grappleButton: 101
+  stopGrapplingButton: 32
+  hookOrigin: {fileID: 5602157909070238787, guid: 9743efab632d82048975e03a37eff27d,
+    type: 3}
+  playerCamera: {fileID: 5546822682279330332}
+  shootingSpeed: 15
+  retractingSpeed: 16
+  maxhookDistance: 15
+  startPullingSpeed: 100
+  maxPullingSpeed: 250
+  growthExponent: 0.3
+  collidedObject: {fileID: 0}
+  collisionDetected: 0
+  state: 0
 --- !u!114 &6572895382585614568
 MonoBehaviour:
   m_ObjectHideFlags: 0
