@@ -23,6 +23,7 @@ public class PlayerMovement : MovementBase {
 	private float sidewaysInput = 0;
 	private Vector2 turnInput = Vector2.zero;
 	private float jumpInput = 0;
+	private bool lowerLowjumping = false;
 
 	public bool preventJumping = false;
 
@@ -62,7 +63,7 @@ public class PlayerMovement : MovementBase {
 
 		// makeshift death zone
 		if (transform.position.y < deathZoneHeight) {
-			transform.position = new Vector3(0, 3, 0);
+			transform.position = respawnPoint;
 			playerRigidbody.velocity = Vector3.zero;
 		}
 	}
@@ -115,19 +116,39 @@ public class PlayerMovement : MovementBase {
 
 	void Jump() {
 		if (preventJumping == false) {
-			bool _isGrounded = IsGrounded();
+			bool grounded = IsGrounded();
 
 			// if jump is pressed player is on ground
-			if (jumpInput != 0f && _isGrounded) {
+			if (jumpInput != 0f && grounded) {
 				performJump();
+
+				lowerLowjumping = false;
+				// counts time to decide if player if lowerLowJumping
+				StartCoroutine(LowerLowJump());
 			}
 
 			// this is still jumping but if jumping is not pressed add lowjumpForce
-			if (jumpInput == 0 && _isGrounded == false && playerRigidbody.velocity.y > 0) {
-				//playerRigidbody.AddForce(Vector3.down * movementSettings.lowjumpForce);
+			if (jumpInput == 0 && grounded == false && playerRigidbody.velocity.y > 0) {
+				
 				playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerRigidbody.velocity.y * playerSettings.lowJumpMultiplier, playerRigidbody.velocity.z);
 			}
+
+			if (lowerLowjumping == true) {
+				playerRigidbody.AddForce(Vector3.down * playerSettings.shortHopForce);
+
+				if (grounded)
+					lowerLowjumping = false;
+			}
 		}
+	}
+
+	private IEnumerator LowerLowJump() {
+		yield return new WaitForSeconds(playerSettings.shortHopTime);
+
+		if (jumpInput <= 0)
+			lowerLowjumping = true;
+
+		Debug.Log(lowerLowjumping);
 	}
 
 	public void performJump() {
@@ -135,7 +156,6 @@ public class PlayerMovement : MovementBase {
 	}
 
 	public void performJump(float jumpVelMultiplier) {
-		Debug.Log(playerSettings.jumpVelocity * jumpVelMultiplier);
 		playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerSettings.jumpVelocity * jumpVelMultiplier, playerRigidbody.velocity.z);
 	}
 
@@ -167,8 +187,11 @@ public class PlayerSettings {
 	[Range(0f, 1f)]
 	public float lowJumpMultiplier = 0.9f;
 
-	[Tooltip("")]
-	public float lowjumpFallingForce = 2f;
+	[Tooltip("If the Jumpkey if held shorter than this time the jump will be extra low (shortHop).")]
+	public float shortHopTime = 0.15f;
+
+	[Tooltip("Additional gravity that is applied to the player if he is shortHopping.")]
+	public float shortHopForce = 10f;
 }
 
 [System.Serializable]
