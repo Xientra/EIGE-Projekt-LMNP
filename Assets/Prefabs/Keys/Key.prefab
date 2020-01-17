@@ -299,7 +299,7 @@ MonoBehaviour:
   keyString: 
   isCharacter: 0
   text: {fileID: 637396752942904618}
-  maxDepth: 1.5
+  maxDepth: 2.5
   time: 0.5
   animationCurve:
     serializedVersion: 2

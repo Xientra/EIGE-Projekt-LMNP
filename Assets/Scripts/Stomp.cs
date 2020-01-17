@@ -50,6 +50,7 @@ public class Stomp : MonoBehaviour {
 		// changed the Phase if the player released stomp, while holding the Key down
 		if (currentPhase == Phases.holdingKey && stompInputThisFrame == false) {
 			currentPhase = Phases.releasedKey;
+			playerMovement.preventJumping = false;
 		}
 	}
 
