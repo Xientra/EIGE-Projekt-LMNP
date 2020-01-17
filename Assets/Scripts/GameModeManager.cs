@@ -7,13 +7,6 @@ public class GameModeManager : MonoBehaviour {
     private GameMode[] modes;
     private GameMode current;
 
-    /*// TODO hardcoded 
-    public void OurModes() {
-        modes = new GameMode[2];
-        modes[0] = transform.GetComponent<TextadventureMode>();
-        modes[1] = transform.GetComponent<MusicalheroMode>();
-    }*/
-
     public GameModeManager(GameMode[] modes) {
         if (modes == null) {
             Debug.Log("null argument");
@@ -40,16 +33,12 @@ public class GameModeManager : MonoBehaviour {
         return null;
     }
 
-    public void SetMode(GameMode mode) {
+    private void SetMode(GameMode mode) {
         if (current != null) {
             current.CloseScene();
         }
         current = mode;
         current.SetupScene();
-    }
-
-    public GameMode GetMode() {
-        return current;
     }
 
     public void PassInput(KeyCode keyCode) {

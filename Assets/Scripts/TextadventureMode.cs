@@ -20,23 +20,21 @@ public class TextadventureMode : CameraManagement, GameMode {
     [SerializeField]
     private int lastPage = 5;
 
-    // other variables
     private string inputString = "";
-
     private string pageString;
-    private TextAsset page;
-
     private string answersString;
-    Dictionary<string, int> answers = new Dictionary<string, int>();
 
-    // used in processInput()
+    private TextAsset page;
+    private Dictionary<string, int> answers = new Dictionary<string, int>();
+
+    // used in ProcessInput()
     List<KeyCode> validKeys = new List<KeyCode>() {
         KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z,
         KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9,
         KeyCode.Space, KeyCode.Question, KeyCode.Exclaim, KeyCode.Period, KeyCode.Comma
     };
 
-    private void updateCanvas(string textobj) {
+    private void UpdateCanvas(string textobj) {
         switch (textobj) {
             case "input":
                 inputText.text = inputString;
@@ -50,19 +48,25 @@ public class TextadventureMode : CameraManagement, GameMode {
         }
     }
 
-    public void addLetter(char letter) {
-        inputString += letter;
-        updateCanvas("input");
+    private void UpdateEntireCanvas() {
+        UpdateCanvas("input");
+        UpdateCanvas("page");
+        UpdateCanvas("answers");
     }
-    public void removeLetter() {
+
+    private void AddLetter(char letter) {
+        inputString += letter;
+        UpdateCanvas("input");
+    }
+    private void RemoveLetter() {
         if (inputString.Length >= 1) {
             inputString = inputString.Remove(inputString.Length - 1);
-            updateCanvas("input");
+            UpdateCanvas("input");
         }
     }
 
     // returns next page for correct input, otherwise -1
-    private int evaluateInput() {
+    private int EvaluateInput() {
         foreach (KeyValuePair<string, int> answer in answers) {
             if (inputString == answer.Key) {
                 return answer.Value;
@@ -71,18 +75,19 @@ public class TextadventureMode : CameraManagement, GameMode {
         return -1;
     }
 
-    public void nextPage() {
-        int nextPage = evaluateInput();
+    private void NextPage() {
+        int nextPage = EvaluateInput();
         inputString = "";
 
         // valid next page
         if ((nextPage >= 0) && (nextPage < lastPage)) {
             Debug.Log("here");
-            readFile(nextPage);
+            ReadFile(nextPage);
+            UpdateEntireCanvas();
         }
     }
 
-    private void readFile(int nr) {
+    private void ReadFile(int nr) {
         page = Resources.Load("Textadventure/page" + nr) as TextAsset;
 
         // split contents of file
@@ -98,6 +103,7 @@ public class TextadventureMode : CameraManagement, GameMode {
         foreach (string answer in content) {
             string[] parts = answer.Split('>');
 
+            // save new answer
             int nextPage;
             if (!int.TryParse(parts[1].Trim(), out nextPage)) {
                 Debug.Log("unparseable nextPage");
@@ -107,39 +113,35 @@ public class TextadventureMode : CameraManagement, GameMode {
             answersString += parts[0] + "\n";
         }
 
-        // update entire canvas
-        updateCanvas("input");
-        updateCanvas("page");
-        updateCanvas("answers");
     }
 
     public void ProcessInput(KeyCode keyCode) {
         if (keyCode == KeyCode.Return) {
-            nextPage();
+            NextPage();
         }
         else if (keyCode == KeyCode.Backspace) {
-            removeLetter();
+            RemoveLetter();
         }
         else if (validKeys.Contains(keyCode)) {
             switch (keyCode) {
                 case KeyCode.Space:
-                    addLetter(' ');
+                    AddLetter(' ');
                     break;
                 case KeyCode.Question:
-                    addLetter('?');
+                    AddLetter('?');
                     break;
                 case KeyCode.Exclaim:
-                    addLetter('!');
+                    AddLetter('!');
                     break;
                 case KeyCode.Period:
-                    addLetter('.');
+                    AddLetter('.');
                     break;
                 case KeyCode.Comma:
-                    addLetter(',');
+                    AddLetter(',');
                     break;
                 default:
                     char letter = char.Parse(keyCode.ToString());
-                    addLetter(letter);
+                    AddLetter(letter);
                     break;
             }
             // TODO numbers?
@@ -148,7 +150,8 @@ public class TextadventureMode : CameraManagement, GameMode {
 
     public void SetupScene() {
         TurnOnCamera();
-        readFile(firstPage);
+        ReadFile(firstPage);
+        UpdateEntireCanvas();
     }
 
     public void CloseScene() {

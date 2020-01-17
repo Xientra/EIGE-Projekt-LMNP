@@ -13,11 +13,11 @@ public class MusicalheroMode : CameraManagement, GameMode {
     }
 
     public void SetupScene() {
-       
+        TurnOnCamera();
     }
 
     public void CloseScene() {
-        
+        TurnOffCamera();
     }
 
     override public string ToString() {
