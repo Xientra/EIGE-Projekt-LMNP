@@ -14,24 +14,29 @@ public class TextadventureMode : CameraManagement, GameMode {
     [SerializeField]
     private Text answersText;
 
-    // set page-limits from inspector
+    // set page-limits from Inspector
     [SerializeField]
     private int firstPage = 1;
     [SerializeField]
     private int lastPage = 5;
 
+    // currently displayed
     private string inputString = "";
     private string pageString;
     private string answersString;
 
+    // other Assets
     private TextAsset page;
     private Dictionary<string, int> answers = new Dictionary<string, int>();
 
     // used in ProcessInput()
-    List<KeyCode> validKeys = new List<KeyCode>() {
+    List<KeyCode> letterKeys = new List<KeyCode>() {
         KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z,
-        KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9,
         KeyCode.Space, KeyCode.Question, KeyCode.Exclaim, KeyCode.Period, KeyCode.Comma
+    };
+
+    KeyCode[] numberKeys = {
+        KeyCode.Alpha0, KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, KeyCode.Alpha9
     };
 
     private void UpdateCanvas(string textobj) {
@@ -81,7 +86,6 @@ public class TextadventureMode : CameraManagement, GameMode {
 
         // valid next page
         if ((nextPage >= 0) && (nextPage < lastPage)) {
-            Debug.Log("here");
             ReadFile(nextPage);
             UpdateEntireCanvas();
         }
@@ -96,33 +100,34 @@ public class TextadventureMode : CameraManagement, GameMode {
         pageString = content[0];
         content = content.Skip(1).ToArray();
 
-        // reset answers
+        // clear old answers
         answers.Clear();
         answersString = "";
 
         foreach (string answer in content) {
             string[] parts = answer.Split('>');
 
-            // save new answer
+            // save new answer in Dictionary
             int nextPage;
             if (!int.TryParse(parts[1].Trim(), out nextPage)) {
                 Debug.Log("unparseable nextPage");
             }
-            answers.Add(parts[0].ToUpper().Trim(), nextPage);
+            answers.Add(parts[0].Trim().ToUpper(), nextPage);
 
             answersString += parts[0] + "\n";
         }
 
     }
 
+    // calls method corresponding to KeyCode
     public void ProcessInput(KeyCode keyCode) {
         if (keyCode == KeyCode.Return) {
             NextPage();
-        }
-        else if (keyCode == KeyCode.Backspace) {
+
+        } else if (keyCode == KeyCode.Backspace) {
             RemoveLetter();
-        }
-        else if (validKeys.Contains(keyCode)) {
+
+        } else if (letterKeys.Contains(keyCode)) {
             switch (keyCode) {
                 case KeyCode.Space:
                     AddLetter(' ');
@@ -144,7 +149,12 @@ public class TextadventureMode : CameraManagement, GameMode {
                     AddLetter(letter);
                     break;
             }
-            // TODO numbers?
+        } else if (numberKeys.Contains(keyCode)) {
+            for (int i = 0; i < 10; i++) {
+                if (keyCode == numberKeys[i]) {
+                    AddLetter(char.Parse("" + i));
+                }
+            }
         }
     }
 
@@ -157,7 +167,7 @@ public class TextadventureMode : CameraManagement, GameMode {
     public void CloseScene() {
         TurnOffCamera();
     }
-
+    
     override public string ToString() {
         return "TextadventureMode";
     }
