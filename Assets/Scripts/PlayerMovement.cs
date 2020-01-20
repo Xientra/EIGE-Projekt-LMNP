@@ -8,7 +8,7 @@ public class PlayerMovement : MovementBase {
 	public Camera playerCamera;
 	private Quaternion cameraAnchorRotationOffset = Quaternion.identity;
 
-	public Vector3 respawnPoint;
+	private Vector3 respawnPoint;
 	public float deathZoneHeight = -50;
 
 	[Header("Settings: ")]
@@ -31,7 +31,7 @@ public class PlayerMovement : MovementBase {
 		playerRigidbody = gameObject.GetComponent<Rigidbody>();
 
 		if (playerCamera == null) playerCamera = GetComponentInChildren<Camera>();
-		if (respawnPoint == null) respawnPoint = transform.position;
+		respawnPoint = transform.position;
 
 		targetRotation = transform.rotation;
 	}
@@ -63,8 +63,7 @@ public class PlayerMovement : MovementBase {
 
 		// makeshift death zone
 		if (transform.position.y < deathZoneHeight) {
-			transform.position = respawnPoint;
-			playerRigidbody.velocity = Vector3.zero;
+			Respawn();
 		}
 	}
 
@@ -129,7 +128,7 @@ public class PlayerMovement : MovementBase {
 
 			// this is still jumping but if jumping is not pressed add lowjumpForce
 			if (jumpInput == 0 && grounded == false && playerRigidbody.velocity.y > 0) {
-				
+
 				playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerRigidbody.velocity.y * playerSettings.lowJumpMultiplier, playerRigidbody.velocity.z);
 			}
 
@@ -166,6 +165,17 @@ public class PlayerMovement : MovementBase {
 	private IEnumerator SetPreventJumping(bool value, float delay) {
 		yield return new WaitForSeconds(delay);
 		preventJumping = value;
+	}
+
+	private void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.CompareTag("DeathCollider")) {
+			Respawn();
+		}
+	}
+
+	private void Respawn() {
+		transform.position = respawnPoint;
+		playerRigidbody.velocity = Vector3.zero;
 	}
 }
 
