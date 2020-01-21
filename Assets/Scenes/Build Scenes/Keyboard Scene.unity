@@ -570,7 +570,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5905e-41, y: 0, z: 0, w: -1.1049668e-13}
+  m_BoundingSphereOverride: {x: NaN, y: 1.5694865e+23, z: 4.62e-43, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -738,7 +738,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b8e83d5b5f355ba4cbfc53b2a8c43ed4, type: 2}
+  - {fileID: 2100000, guid: 6cb68ae50bf594044b071771c04a5e25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1229,6 +1229,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1778813314770391015, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data1
+      value: 184684576768
+      objectReference: {fileID: 0}
+    - target: {fileID: -1778813314770391015, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1778813314770391015, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: m_Version
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689961, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}
       propertyPath: m_LocalPosition.x

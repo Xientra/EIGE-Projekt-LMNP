@@ -47,6 +47,10 @@ public class MusicalheroMode : CameraManagement, GameMode {
         }*/
     }
 
+    private void UpdateScore(int points) { 
+        
+    }
+
     private void LoadTrack(string name) {
         currentTrack = Resources.Load<AudioClip>("Musicalhero/" + name);
     }
