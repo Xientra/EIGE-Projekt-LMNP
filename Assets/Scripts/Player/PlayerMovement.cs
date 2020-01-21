@@ -25,7 +25,11 @@ public class PlayerMovement : MovementBase {
 	private float jumpInput = 0;
 	private bool lowerLowjumping = false;
 
+	// this is for the stomp script, so it can modify movement
 	public bool preventJumping = false;
+	[HideInInspector]
+	[Range(0f, 1f)]
+	public float speedMultiplier = 1;
 
 	private void Awake() {
 		playerRigidbody = gameObject.GetComponent<Rigidbody>();
@@ -80,8 +84,8 @@ public class PlayerMovement : MovementBase {
 	}
 
 	void Move() {
-		velocity.z = forwardInput * playerSettings.runVelocity;
-		velocity.x = sidewaysInput * playerSettings.runVelocity;
+		velocity.z = forwardInput * playerSettings.runVelocity * speedMultiplier;
+		velocity.x = sidewaysInput * playerSettings.runVelocity * speedMultiplier;
 
 		velocity.y = playerRigidbody.velocity.y;
 		playerRigidbody.velocity = transform.TransformDirection(velocity);
@@ -146,8 +150,6 @@ public class PlayerMovement : MovementBase {
 
 		if (jumpInput <= 0)
 			lowerLowjumping = true;
-
-		Debug.Log(lowerLowjumping);
 	}
 
 	public void performJump() {

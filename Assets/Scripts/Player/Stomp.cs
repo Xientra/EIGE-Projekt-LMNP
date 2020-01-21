@@ -13,6 +13,9 @@ public class Stomp : MonoBehaviour {
 
 	public float stompSpeed = 20;
 
+	[Range(0f, 1f)]
+	public float stompingSpeedMultiplier = 0.5f;
+
 	[Header("Key Jump:")]
 	[Tooltip("How long the key as to be held down to activate a key jump.")]
 	public float keyJumpTime = 2f;
@@ -40,9 +43,13 @@ public class Stomp : MonoBehaviour {
 
 		if (currentPhase == Phases.waitForInput && Input.GetKeyDown(stompKeyCode)) {
 			currentPhase = Phases.decending;
-			if (playerMovement != null) playerMovement.preventJumping = true;
+			if (playerMovement != null) {
+				playerMovement.preventJumping = true;
+				playerMovement.speedMultiplier = stompingSpeedMultiplier;
+			}
 		}
 
+		// debug
 		if (currentPhase == Phases.decending) {
 			Debug.DrawLine(transform.position, transform.position + Vector3.down * (transform.lossyScale.y - (rb.velocity.y * Time.fixedDeltaTime * 2)), Color.red);
 		}
@@ -113,6 +120,7 @@ public class Stomp : MonoBehaviour {
 		currentPhase = Phases.waitForInput;
 		if (playerMovement != null) {
 			playerMovement.preventJumping = false;
+			playerMovement.speedMultiplier = 1;
 
 			// On KeyJump
 			if (willKeyJump == true) {
