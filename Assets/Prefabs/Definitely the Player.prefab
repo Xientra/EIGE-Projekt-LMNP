@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1158129672469029619}
   m_Layer: 2
   m_Name: Definitely the Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,6 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 256
   playerCamera: {fileID: 5546822682279330332}
-  respawnPoint: {x: 0, y: 0, z: 0}
   deathZoneHeight: -25
   playerSettings:
     runVelocity: 17
