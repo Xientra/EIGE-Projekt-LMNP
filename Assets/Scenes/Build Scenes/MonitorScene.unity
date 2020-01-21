@@ -619,7 +619,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.12e-43, y: -4.940074e+22, z: 6.12e-43, w: 939846.3}
+  m_BoundingSphereOverride: {x: -1.114e-42, y: 6e-45, z: 2.4e-44, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1532,6 +1532,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Version
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482728818941597378, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: dashSettings.maxAmountOfDashes
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482728818941597378, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: dashSettings.dashTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689961, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}

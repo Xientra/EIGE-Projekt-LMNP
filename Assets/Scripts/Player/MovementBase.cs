@@ -16,17 +16,6 @@ public class MovementBase : MonoBehaviour
 
         if (playerCamera == null) playerCamera = GetComponentInChildren<Camera>();
     }
-
-    protected bool IsGrounded()
-    {
-        float avgSize = ((transform.lossyScale.x + transform.lossyScale.z) / 2) * 0.95f;
-
-        Vector3 boxSize = new Vector3(avgSize / 2, baseSettings.distanceToGround, avgSize / 2);
-
-        bool hit = Physics.BoxCast(transform.position, boxSize / 2, -transform.up, transform.rotation, transform.lossyScale.y + boxSize.y / 2, baseSettings.ground);
-
-        return hit;
-    }
 }
 
 [System.Serializable]
