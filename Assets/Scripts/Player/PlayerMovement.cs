@@ -29,6 +29,7 @@ public class PlayerMovement : MovementBase {
 	[HideInInspector]
 	[Range(0f, 1f)]
 	public float speedMultiplier = 1;
+    public float dashSpeed = 0f;
 
 	private void Awake() {
         setAttributes();
@@ -82,11 +83,13 @@ public class PlayerMovement : MovementBase {
 	}
 
 	void Move() {
-		velocity.z = forwardInput * playerSettings.runVelocity * speedMultiplier;
-		velocity.x = sidewaysInput * playerSettings.runVelocity * speedMultiplier;
+
+        velocity.z = forwardInput * playerSettings.runVelocity + dashSpeed; //* speedMultiplier; //@Paul pls fix this
+        velocity.x = sidewaysInput * playerSettings.runVelocity; //* speedMultiplier;
 
 		velocity.y = playerRigidbody.velocity.y;
-		playerRigidbody.velocity = transform.TransformDirection(velocity);
+        
+        playerRigidbody.velocity = transform.TransformDirection(velocity);
 	}
 
 	void Turn() {
@@ -117,7 +120,7 @@ public class PlayerMovement : MovementBase {
 
 	void Jump() {
 		if (preventJumping == false) {
-			bool grounded = IsGrounded();
+			bool grounded = isGrounded();
 
 			// if jump is pressed player is on ground
 			if (jumpInput != 0f && grounded) {
@@ -176,7 +179,18 @@ public class PlayerMovement : MovementBase {
 	private void Respawn() {
 		transform.position = respawnPoint;
 		playerRigidbody.velocity = Vector3.zero;
-	}
+    }
+
+    public bool isGrounded()
+    {
+        float avgSize = ((transform.lossyScale.x + transform.lossyScale.z) / 2) * 0.95f;
+
+        Vector3 boxSize = new Vector3(avgSize / 2, baseSettings.distanceToGround, avgSize / 2);
+
+        bool hit = Physics.BoxCast(transform.position, boxSize / 2, -transform.up, transform.rotation, transform.lossyScale.y + boxSize.y / 2, baseSettings.ground);
+
+        return hit;
+    }
 }
 
 [System.Serializable]
