@@ -7,12 +7,25 @@ public class GameModeManager : MonoBehaviour {
     private GameMode[] modes;
     private GameMode current;
 
-    public GameModeManager(GameMode[] modes) {
+    public static GameModeManager Instance { get; set; }
+
+    private void Awake() {
+        if (Instance == null) {
+            Debug.Log("Instantiate...");
+            Instance = this;
+        }
+    }
+
+    public void AcceptModes(GameMode[] modes) {
+        this.modes = modes;
+    }
+
+    /*public GameModeManager(GameMode[] modes) {
         if (modes == null) {
             Debug.Log("null argument");
         }
         this.modes = modes;
-    }
+    }*/
 
     public void SelectMode(string name) {
         GameMode selected = FindMode(name);
@@ -42,6 +55,7 @@ public class GameModeManager : MonoBehaviour {
     }
 
     public void PassInput(KeyCode keyCode) {
+        Debug.Log("Input?");
         current.ProcessInput(keyCode);
     }
 }
