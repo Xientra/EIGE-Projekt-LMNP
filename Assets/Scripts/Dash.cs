@@ -7,19 +7,9 @@ public class Dash : MovementBase
     [Header("Settings:")]
     public DashSettings dashSettings;
 
-    private PlayerMovement playerMovement;
-
-    public int currentAmountOfDashesRemaining = 1;
-    public float dashTimeRemaining = 0f;
-
-    public bool isDashing = false;
-
     private void Awake()
     {
         setAttributes();
-        playerMovement = GetComponent<PlayerMovement>();
-        currentAmountOfDashesRemaining = dashSettings.maxAmountOfDashes;
-        dashTimeRemaining = dashSettings.dashTime;
     }
 
     // Start is called before the first frame update
@@ -36,27 +26,17 @@ public class Dash : MovementBase
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(dashSettings.dashKey) && currentAmountOfDashesRemaining > 0 && !isDashing)
+        if (Input.GetKey(dashSettings.dashKey))
         {
-            currentAmountOfDashesRemaining--;
-            playerMovement.dashSpeed = dashSettings.dashSpeed;
-            isDashing = true;
-        }
+            Vector3 velocity = transform.localRotation.eulerAngles;
+            
 
-        if (playerMovement.isGrounded())
-        {
-            currentAmountOfDashesRemaining = dashSettings.maxAmountOfDashes;
-        }
+            print(velocity.ToString());
 
-        if(dashTimeRemaining >= 0 && isDashing)
-        {
-            dashTimeRemaining -= Time.deltaTime;
-        }
-        else
-        {
-            isDashing = false;
-            playerMovement.dashSpeed = 0f;
-            dashTimeRemaining = dashSettings.dashTime;
+            velocity.Normalize();
+            velocity *= dashSettings.dashForce;
+
+            playerRigidbody.velocity += velocity;
         }
     }
 }
@@ -67,6 +47,11 @@ public class DashSettings
     public KeyCode dashKey = KeyCode.LeftShift;
     public int maxAmountOfDashes = 1;
 
-    public float dashSpeed = 80f;
+    public float dashForce = 2f;
+    public float dashDistance = 7f;
     public float dashTime = 1f;
+
+    //Winkel, die der Spieler maximal nach oben oder unten dashen kann
+    public float maxAngleUp = 90f;
+    public float maxAngleDown = 10f;
 }

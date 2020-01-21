@@ -619,7 +619,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 6.12e-43, y: -4.940074e+22, z: 6.12e-43, w: 939846.3}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1533,36 +1533,6 @@ PrefabInstance:
       propertyPath: m_Version
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 788568499239335142, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: baseSettings.ground.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 788568499239335142, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: baseSettings.distanceToGround
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728818941597378, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: dashSettings.dashSpeed
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728818941597378, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: dashSettings.maxAmountOfDashes
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728818941597378, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: baseSettings.ground.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482728818941597378, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: baseSettings.distanceToGround
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689961, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1618,11 +1588,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5546822681655689963, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689966, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}
       propertyPath: movementSettings.runVelocity
@@ -1647,11 +1612,6 @@ PrefabInstance:
         type: 3}
       propertyPath: playerSettings.shortHopForce
       value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5546822681655689966, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: baseSettings.distanceToGround
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689967, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}
@@ -1682,11 +1642,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AllowMSAA
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6572895382585614568, guid: 817206b7fe2caf046b4e24c50882c99b,
-        type: 3}
-      propertyPath: stompingSpeedMultiplier
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 817206b7fe2caf046b4e24c50882c99b, type: 3}
