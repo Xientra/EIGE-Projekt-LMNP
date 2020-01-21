@@ -25,10 +25,10 @@ public class Main : MonoBehaviour {
         modeManager.PassInput(KeyCode.Question);
         modeManager.PassInput(KeyCode.Return);
 
-        // switch GameMode
+        /*// switch GameMode
         modeManager.SelectMode(orderOfModes[1]);
 
         // testing-sequence for MusicalheroMode
-        // TODO
+        // TODO*/
     }
 }

@@ -119,7 +119,8 @@ public class Key : MonoBehaviour {
 			else {
 				gameObject.name = "Key \"" + keyCode + "\"";
 			}
-			
+			if (isCharacter)
+				text.text = keyString;
 		}
 
 		if (debugging) {
