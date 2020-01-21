@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MovementBase {
 
-	public Camera playerCamera;
 	private Quaternion cameraAnchorRotationOffset = Quaternion.identity;
 
 	private Vector3 respawnPoint;
@@ -15,7 +14,7 @@ public class PlayerMovement : MovementBase {
 	public PlayerSettings playerSettings;
 	public InputSettings inputSettings;
 
-	private Rigidbody playerRigidbody;
+	
 	private Vector3 velocity;
 	private Quaternion targetRotation;
 
@@ -28,9 +27,8 @@ public class PlayerMovement : MovementBase {
 	public bool preventJumping = false;
 
 	private void Awake() {
-		playerRigidbody = gameObject.GetComponent<Rigidbody>();
+        setAttributes();
 
-		if (playerCamera == null) playerCamera = GetComponentInChildren<Camera>();
 		respawnPoint = transform.position;
 
 		targetRotation = transform.rotation;

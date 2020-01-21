@@ -7,6 +7,16 @@ public class MovementBase : MonoBehaviour
     [Header("Base Settings:")]
     public BaseSettings baseSettings;
 
+    public Camera playerCamera;
+    protected Rigidbody playerRigidbody;
+
+    protected void setAttributes()
+    {
+        playerRigidbody = gameObject.GetComponent<Rigidbody>();
+
+        if (playerCamera == null) playerCamera = GetComponentInChildren<Camera>();
+    }
+
     protected bool IsGrounded()
     {
         float avgSize = ((transform.lossyScale.x + transform.lossyScale.z) / 2) * 0.95f;
