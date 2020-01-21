@@ -37,6 +37,8 @@ public class PlayerMovement : MovementBase {
 		respawnPoint = transform.position;
 
 		targetRotation = transform.rotation;
+
+		speedMultiplier = 1;
 	}
 
 	void Start() {
