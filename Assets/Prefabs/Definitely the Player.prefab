@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 6054471195276114539}
   - component: {fileID: 6572895382585614568}
   - component: {fileID: 1158129672469029619}
+  - component: {fileID: 4482728818941597378}
+  - component: {fileID: 788568499239335142}
   m_Layer: 2
   m_Name: Definitely the Player
   m_TagString: Player
@@ -214,6 +216,47 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &4482728818941597378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546822681655689967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f77f5dc39322a40893426398bacc6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSettings:
+    distanceToGround: 0.3
+    ground:
+      serializedVersion: 2
+      m_Bits: 8
+  dashSettings:
+    dashKey: 304
+    maxAmountOfDashes: 1
+    dashDistance: 7
+    dashTime: 1
+    maxAngleUp: 90
+    maxAngleDown: 10
+--- !u!114 &788568499239335142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546822681655689967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430d80b2e8ba8504fbb3e6d343a1795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSettings:
+    distanceToGround: 0.3
+    ground:
+      serializedVersion: 2
+      m_Bits: 8
 --- !u!1 &5546822682279330334
 GameObject:
   m_ObjectHideFlags: 0

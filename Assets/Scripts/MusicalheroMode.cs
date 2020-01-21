@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicalheroMode : CameraManagement, GameMode {
 
@@ -26,11 +27,13 @@ public class MusicalheroMode : CameraManagement, GameMode {
     private float badUpper, badLower;
 
     // scoring
+    [SerializeField]
+    private Text scoreboard;
     private int score;
     private int highscore;
 
-    // TODO
-    //private AudioSource currentAudio = Resources.Load("Musicalhero/trackname"); 
+    // sound (TODO generalize)
+    private AudioClip currentTrack = Resources.Load<AudioClip>("Musicalhero/tetris"); 
 
     private void Start() {
         // keyChain = keys attached to sceneObj
@@ -44,13 +47,17 @@ public class MusicalheroMode : CameraManagement, GameMode {
         }
     }
 
+    private void TurnOnMusic() { 
+
+    }
+
     public void ProcessInput(KeyCode keyCode) {
         
     }
 
     public void SetupScene() {
         TurnOnCamera();
-        // TurnOnMusic();
+        TurnOnMusic();
     }
 
     public void CloseScene() {
