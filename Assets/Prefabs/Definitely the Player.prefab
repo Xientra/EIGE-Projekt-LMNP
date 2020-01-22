@@ -12,12 +12,14 @@ GameObject:
   - component: {fileID: 5546822681655689962}
   - component: {fileID: 5546822681655689963}
   - component: {fileID: 5476873940901654660}
+  - component: {fileID: 7709942696554177884}
   - component: {fileID: 5546822681655689965}
   - component: {fileID: 5546822681655689966}
   - component: {fileID: 6054471195276114539}
   - component: {fileID: 6572895382585614568}
   - component: {fileID: 1158129672469029619}
   - component: {fileID: 4482728818941597378}
+  - component: {fileID: 8514574305944584948}
   - component: {fileID: 788568499239335142}
   m_Layer: 2
   m_Name: Definitely the Player
@@ -101,6 +103,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &7709942696554177884
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546822681655689967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.56, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5546822681655689965
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,6 +168,7 @@ MonoBehaviour:
     JUMP_AXIS: Jump
   preventJumping: 0
   speedMultiplier: 0
+  dashSpeed: 0
 --- !u!114 &6054471195276114539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,13 +249,43 @@ MonoBehaviour:
     ground:
       serializedVersion: 2
       m_Bits: 8
+  playerCamera: {fileID: 0}
   dashSettings:
     dashKey: 304
-    maxAmountOfDashes: 1
-    dashDistance: 7
-    dashTime: 1
-    maxAngleUp: 90
-    maxAngleDown: 10
+    maxAmountOfDashes: 2
+    dashSpeed: 80
+    dashTime: 0.2
+  currentAmountOfDashesRemaining: 1
+  dashTimeRemaining: 0
+  isDashing: 0
+--- !u!114 &8514574305944584948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5546822681655689967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb8c31641895fc4fa786eb6c03c2c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSettings:
+    distanceToGround: 0.3
+    ground:
+      serializedVersion: 2
+      m_Bits: 1
+  playerCamera: {fileID: 0}
+  wallClimbSettings:
+    wallClimbMask:
+      serializedVersion: 2
+      m_Bits: 1
+    climbKey: 102
+    jumpKey: 32
+    maxNumberOfClimbs: 2
+    maxTimePerClimb: 10
+    boxDimensions: {x: 5, y: 1.41, z: 5}
+  isClimbing: 0
 --- !u!114 &788568499239335142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +303,7 @@ MonoBehaviour:
     ground:
       serializedVersion: 2
       m_Bits: 8
+  playerCamera: {fileID: 0}
 --- !u!1 &5546822682279330334
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +374,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -382,8 +429,8 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_RenderingPathCustomFrameSettings:
     bitDatas:
-      data1: 69456063627037
-      data2: 4539628424389459968
+      data1: 184684576768
+      data2: 0
     lodBias: 1
     lodBiasMode: 0
     maximumLODLevel: 0
@@ -393,7 +440,7 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
-  m_Version: 0
+  m_Version: 6
   m_ObsoleteRenderingPath: 0
   m_ObsoleteFrameSettings:
     overrides: 0

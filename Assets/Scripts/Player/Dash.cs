@@ -22,18 +22,6 @@ public class Dash : MovementBase
         dashTimeRemaining = dashSettings.dashTime;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
         if (Input.GetKeyDown(dashSettings.dashKey) && currentAmountOfDashesRemaining > 0 && !isDashing)
