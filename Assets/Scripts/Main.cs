@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 
-    public static GameModeManager modeManager;
-
     // set order of GameModes from Inspector
     [SerializeField]
     string[] orderOfModes = { "TextadventureMode", "MusicalheroMode" };
@@ -14,24 +12,21 @@ public class Main : MonoBehaviour {
         GameModeManager.Instance.AcceptModes(transform.GetComponents<GameMode>());
         GameModeManager.Instance.SelectMode(orderOfModes[0]);
 
-        /*modeManager = new GameModeManager(transform.GetComponents<GameMode>());
-        modeManager.SelectMode(orderOfModes[0]);
+        /*// testing-sequence for TextadventureMode
+        GameModeManager.Instance.PassInput(KeyCode.M);
+        GameModeManager.Instance.PassInput(KeyCode.A);
+        GameModeManager.Instance.PassInput(KeyCode.Y);
+        GameModeManager.Instance.PassInput(KeyCode.D);
+        GameModeManager.Instance.PassInput(KeyCode.Backspace);
+        GameModeManager.Instance.PassInput(KeyCode.B);
+        GameModeManager.Instance.PassInput(KeyCode.E);
+        GameModeManager.Instance.PassInput(KeyCode.Question);
+        GameModeManager.Instance.PassInput(KeyCode.Return);*/
 
-        // testing-sequence for TextadventureMode
-        modeManager.PassInput(KeyCode.M);
-        modeManager.PassInput(KeyCode.A);
-        modeManager.PassInput(KeyCode.Y);
-        modeManager.PassInput(KeyCode.D);
-        modeManager.PassInput(KeyCode.Backspace);
-        modeManager.PassInput(KeyCode.B);
-        modeManager.PassInput(KeyCode.E);
-        modeManager.PassInput(KeyCode.Question);
-        modeManager.PassInput(KeyCode.Return);*/
-
-        /*// switch GameMode
-        modeManager.SelectMode(orderOfModes[1]);
+        // switch GameMode
+        GameModeManager.Instance.SelectMode(orderOfModes[1]);
 
         // testing-sequence for MusicalheroMode
-        // TODO*/
+        // TODO
     }
 }

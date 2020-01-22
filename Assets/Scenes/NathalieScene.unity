@@ -366,7 +366,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6cb68ae50bf594044b071771c04a5e25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearColorMode: 0
-  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  backgroundColorHDR: {r: 0, g: 0, b: 0, a: 0}
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
@@ -641,7 +641,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 880587b0d84b75e4eb4772af0daae282, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1036,7 +1036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059654269}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 20.2, y: 4.4, z: 6.5}
+  m_LocalPosition: {x: 18.19, y: 7.43, z: -2.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1206,7 +1206,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6cb68ae50bf594044b071771c04a5e25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1525,6 +1525,7 @@ GameObject:
   - component: {fileID: 2015132661}
   - component: {fileID: 2015132659}
   - component: {fileID: 2015132660}
+  - component: {fileID: 2015132662}
   m_Layer: 0
   m_Name: ScriptsObj
   m_TagString: Untagged
@@ -1561,6 +1562,17 @@ MonoBehaviour:
   cam: {fileID: 357165974}
   target: {fileID: 8400000, guid: a10f6fe5febba2340bc44a32f48c8954, type: 2}
   keyChain: {fileID: 1814167893}
+  keySpeed: 1.5
+  deathLine: 0
+  greatUpper: 0
+  greatLower: 0
+  goodUppper: 0
+  goodLower: 0
+  okayUpper: 0
+  okayLower: 0
+  badUpper: 0
+  badLower: 0
+  scoreboard: {fileID: 0}
 --- !u!114 &2015132660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1573,6 +1585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9924fe18640fde04f92ad772d8f404c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderOfModes:
+  - TextadventureMode
+  - MusicalheroMode
 --- !u!114 &2015132661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,6 +1607,18 @@ MonoBehaviour:
   answersText: {fileID: 726559750}
   firstPage: 1
   lastPage: 5
+--- !u!114 &2015132662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015132657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb1848875d4441342b544144164f6193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017275629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1682,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6cb68ae50bf594044b071771c04a5e25, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

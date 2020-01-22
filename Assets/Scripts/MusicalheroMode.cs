@@ -5,12 +5,9 @@ using UnityEngine.UI;
 
 public class MusicalheroMode : CameraManagement, GameMode {
 
-    // empty GameObject in Scene
-    [SerializeField]
-    private GameObject sceneObj;
-
     // falling keys
-    private GameObject[] keyChain;
+    [SerializeField]
+    private GameObject keyChain;
     [SerializeField]
     private float keySpeed;
 
@@ -20,7 +17,7 @@ public class MusicalheroMode : CameraManagement, GameMode {
     [SerializeField]
     private float greatUpper, greatLower;
     [SerializeField]
-    private float goodUppper, goodLower;
+    private float goodUpper, goodLower;
     [SerializeField]
     private float okayUpper, okayLower;
     [SerializeField]
@@ -35,20 +32,54 @@ public class MusicalheroMode : CameraManagement, GameMode {
     // sound (TODO generalize)
     private AudioClip currentTrack;
 
-    private void Start() {
-        // keyChain = keys attached to sceneObj
-        // TODO (already in the works)
-    }
 
     void Update() {
-        /*// let keys fall from the sky continously
-        foreach (GameObject key in keyChain) {
-            key.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
-        }*/
+        // let keys fall from the sky continously
+        keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
     }
 
-    private void UpdateScore(int points) { 
-        
+    private int DecidePoints(float position) {
+        if (position > deathLine) {
+            return -100;
+
+        } else if (position < badUpper && position > badLower) {
+            return 100;
+
+        } else if (position < okayUpper && position > okayLower) {
+            return 200;
+
+        } else if (position < goodUpper && position > goodLower) {
+            return 300;
+
+        } else if (position < greatUpper && position > greatLower) {
+            return 400;
+
+        } else {
+            return 0;
+        }
+    }
+
+    private void UpdateScore(int points) {
+        score += points;
+        scoreboard.text = score.ToString();
+    }
+
+    // asesses if suitable GameObject is in camera's field of view 
+    private bool isInFOV(KeyCode keyCode, out GameObject key) {
+        GameObject[] keys = keyChain.GetComponentsInChildren<GameObject>();
+
+        foreach (GameObject obj in keys) {
+            if (obj.name == keyCode.ToString()) {
+                if (obj.GetComponent<Renderer>().isVisible) {
+                    key = obj;
+                    return true;
+                }
+            }
+        }
+
+        // nothing found
+        key = null;
+        return false;
     }
 
     private void LoadTrack(string name) {
@@ -63,7 +94,14 @@ public class MusicalheroMode : CameraManagement, GameMode {
     }
 
     public void ProcessInput(KeyCode keyCode) {
-        
+        GameObject keyObj;
+        if (isInFOV(keyCode, out keyObj)) {
+            float position = keyObj.transform.position.y;
+            int points = DecidePoints(position);
+            UpdateScore(points);
+
+            Destroy(keyObj);
+        }
     }
 
     public void SetupScene() {
