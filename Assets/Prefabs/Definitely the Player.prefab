@@ -158,8 +158,8 @@ MonoBehaviour:
     minAngle: 80
     jumpVelocity: 27
     lowJumpMultiplier: 0.7
-    shortHopTime: 0.15
-    shortHopForce: 10
+    shortHopTime: 0.2
+    shortHopForce: 25
   inputSettings:
     FORWARD_AXIS: Vertical
     SIDEWAYS_AXIS: Horizontal
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stompKeyCode: 306
   stompSpeed: 50
-  stompingSpeedMultiplier: 0.3
+  stompingSpeedMultiplier: 0.1
   keyJumpTime: 2
   keyJumpJumpMultiplier: 2
   preventJumpTime: 0.2
@@ -286,6 +286,8 @@ MonoBehaviour:
     maxTimePerClimb: 10
     boxDimensions: {x: 5, y: 1.41, z: 5}
   isClimbing: 0
+  currentNumberOfClimbs: 0
+  climbTimeRemaining: 0
 --- !u!114 &788568499239335142
 MonoBehaviour:
   m_ObjectHideFlags: 0

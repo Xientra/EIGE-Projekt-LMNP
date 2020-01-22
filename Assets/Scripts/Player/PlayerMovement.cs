@@ -24,11 +24,13 @@ public class PlayerMovement : MovementBase {
 	private float jumpInput = 0;
 	private bool lowerLowjumping = false;
 
-	// this is for the stomp script, so it can modify movement
+	// this is for other movement scripts, so they can modify movement
+	[HideInInspector]
 	public bool preventJumping = false;
 	[HideInInspector]
 	[Range(0f, 1f)]
 	public float speedMultiplier = 1;
+	//HideInInspector]
     public float dashSpeed = 0f;
 
     private void Awake() {
@@ -85,7 +87,7 @@ public class PlayerMovement : MovementBase {
 	}
 
 	void Move() {
-		velocity.z = forwardInput * playerSettings.runVelocity + dashSpeed * speedMultiplier;
+		velocity.z = dashSpeed + (forwardInput * playerSettings.runVelocity * speedMultiplier);
 		velocity.x = sidewaysInput * playerSettings.runVelocity * speedMultiplier;
 
 		velocity.y = playerRigidbody.velocity.y;
