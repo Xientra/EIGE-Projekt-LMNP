@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerMovement))]
 public class Stomp : MonoBehaviour {
 
 	private Rigidbody rb;
@@ -43,10 +44,9 @@ public class Stomp : MonoBehaviour {
 
 		if (currentPhase == Phases.waitForInput && Input.GetKeyDown(stompKeyCode)) {
 			currentPhase = Phases.decending;
-			if (playerMovement != null) {
-				playerMovement.preventJumping = true;
-				playerMovement.speedMultiplier = stompingSpeedMultiplier;
-			}
+
+			playerMovement.preventJumping = true;
+			playerMovement.speedMultiplier = stompingSpeedMultiplier;
 		}
 
 		// debug
@@ -57,7 +57,9 @@ public class Stomp : MonoBehaviour {
 		// changed the Phase if the player released stomp, while holding the Key down
 		if (currentPhase == Phases.holdingKey && stompInputThisFrame == false) {
 			currentPhase = Phases.releasedKey;
+
 			playerMovement.preventJumping = false;
+			playerMovement.speedMultiplier = 1;
 		}
 	}
 
@@ -105,6 +107,7 @@ public class Stomp : MonoBehaviour {
 			if (keyJumpTimeStamp < Time.time && willKeyJump == false) {
 				willKeyJump = true;
 
+
 				// creates visual effects
 				Destroy(Instantiate(effectPrefabs.keyJumpReady, transform.position, Quaternion.identity), 5f);
 				continiousEffect = Instantiate(effectPrefabs.keyJumpContinious, transform);
@@ -114,33 +117,37 @@ public class Stomp : MonoBehaviour {
 
 		hitKey.hold = false; // tells the key to animate again
 
+		if (willKeyJump)
+			playerMovement.preventJumping = true;
+
 		// wait until the key finished it's animation
 		yield return new WaitForSeconds(pressTime - timeUntilPressed);
-
 		currentPhase = Phases.waitForInput;
-		if (playerMovement != null) {
-			playerMovement.preventJumping = false;
-			playerMovement.speedMultiplier = 1;
-
-			// On KeyJump
-			if (willKeyJump == true) {
-				
-				// prevents the player from jumping for a few milliseconds so he cant override the keyJump
-				playerMovement.preventJumping = true;
-				playerMovement.SetPreventJumpingAfterDelay(false, preventJumpTime);
-
-			
-				// tells the player to jump
-				playerMovement.performJump(keyJumpJumpMultiplier);
 
 
-				// ends previous visual effect and creates new
-				continiousEffect.GetComponentInChildren<ParticleSystem>().Stop();
-				Destroy(continiousEffect, 3);
 
-				Destroy(Instantiate(effectPrefabs.keyJumpReady, transform.position, Quaternion.identity), 5f);
-			}
+		playerMovement.preventJumping = false;
+
+
+		// On KeyJump
+		if (willKeyJump == true) {
+
+			// prevents the player from jumping for a few milliseconds so he cant override the keyJump
+			playerMovement.preventJumping = true;
+			playerMovement.SetPreventJumpingAfterDelay(false, preventJumpTime);
+
+
+			// tells the player to jump
+			playerMovement.performJump(keyJumpJumpMultiplier);
+
+
+			// ends previous visual effect and creates new
+			continiousEffect.GetComponentInChildren<ParticleSystem>().Stop();
+			Destroy(continiousEffect, 3);
+
+			Destroy(Instantiate(effectPrefabs.keyJumpReady, transform.position, Quaternion.identity), 5f);
 		}
+
 
 		transform.SetParent(null);
 	}

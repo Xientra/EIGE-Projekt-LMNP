@@ -77,7 +77,7 @@ public class Key : MonoBehaviour {
 	//public float timeUntilPressed { get => GetTimeUntilPressed(); }
 
 	/// <summary> 
-	/// Gets the time from the animation curve where the key is fully pressed the first time (results animationTime / 2 if none found)
+	/// Gets the time from the animation curve where the key is fully pressed the first time (returns animationTime / 2 if none found)
 	/// </summary>
 	public float GetTimeUntilPressed() {
 		foreach (Keyframe kf in animationCurve.keys) {

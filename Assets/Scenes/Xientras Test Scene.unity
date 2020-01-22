@@ -477,7 +477,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.37e-43, y: NaN, z: 9.37e-43, w: -3.6911244e+27}
+  m_BoundingSphereOverride: {x: 5.45e-43, y: NaN, z: 5.45e-43, w: -1.21512095e-23}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1003,6 +1003,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1047740069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5546822682279330334, guid: 817206b7fe2caf046b4e24c50882c99b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5546822682395275119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1047740071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047740069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5166c75f8c0682e4b8ed6030b73c8d52, type: 2}
 --- !u!1 &1053503732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1611,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Version
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -1778813314770391015, guid: 817206b7fe2caf046b4e24c50882c99b,
+        type: 3}
+      propertyPath: antialiasing
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689961, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}
