@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Main : MonoBehaviour {
 
-    GameModeManager modeManager;
+    public static GameModeManager modeManager;
 
     // set order of GameModes from Inspector
     [SerializeField]
     string[] orderOfModes = { "TextadventureMode", "MusicalheroMode" };
 
     private void Start() {
-        modeManager = new GameModeManager(transform.GetComponents<GameMode>());
+        GameModeManager.Instance.AcceptModes(transform.GetComponents<GameMode>());
+        GameModeManager.Instance.SelectMode(orderOfModes[0]);
+
+        /*modeManager = new GameModeManager(transform.GetComponents<GameMode>());
         modeManager.SelectMode(orderOfModes[0]);
 
         // testing-sequence for TextadventureMode
@@ -23,7 +26,7 @@ public class Main : MonoBehaviour {
         modeManager.PassInput(KeyCode.B);
         modeManager.PassInput(KeyCode.E);
         modeManager.PassInput(KeyCode.Question);
-        modeManager.PassInput(KeyCode.Return);
+        modeManager.PassInput(KeyCode.Return);*/
 
         /*// switch GameMode
         modeManager.SelectMode(orderOfModes[1]);

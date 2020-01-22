@@ -44,8 +44,9 @@ public class Key : MonoBehaviour {
 	public void Press() {
 		if (animating == false) {
 			if (isCharacter) {
-				//ModeManager.instace.GetCurrentGameMode().InputImpusle(keyCode); // <------------------------ here @Nathalie
-				TextInTheSky.instance.textUI.text += keyString; // just for testing
+                Debug.Log("KEY PRESSED");
+				GameModeManager.Instance.PassInput(keyCode); // <------------------------ here @Nathalie
+				//TextInTheSky.instance.textUI.text += keyString; // just for testing
 			}
 
 			// starts the animation
