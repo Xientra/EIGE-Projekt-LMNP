@@ -19,14 +19,6 @@ public class GameModeManager : MonoBehaviour {
     public void AcceptModes(GameMode[] modes) {
         this.modes = modes;
     }
-
-    /*public GameModeManager(GameMode[] modes) {
-        if (modes == null) {
-            Debug.Log("null argument");
-        }
-        this.modes = modes;
-    }*/
-
     public void SelectMode(string name) {
         GameMode selected = FindMode(name);
 

@@ -20,8 +20,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
     private float goodUpper, goodLower;
     [SerializeField]
     private float okayUpper, okayLower;
-    [SerializeField]
-    private float badUpper, badLower;
 
     // scoring
     [SerializeField]
@@ -32,7 +30,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
     // sound (TODO generalize)
     private AudioClip currentTrack;
 
-
     void Update() {
         // let keys fall from the sky continously
         keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
@@ -42,17 +39,14 @@ public class MusicalheroMode : CameraManagement, GameMode {
         if (position > deathLine) {
             return -100;
 
-        } else if (position < badUpper && position > badLower) {
+        } else if (position < okayUpper && position > okayLower) {
             return 100;
 
-        } else if (position < okayUpper && position > okayLower) {
+        } else if (position < goodUpper && position > goodLower) {
             return 200;
 
-        } else if (position < goodUpper && position > goodLower) {
-            return 300;
-
         } else if (position < greatUpper && position > greatLower) {
-            return 400;
+            return 300;
 
         } else {
             return 0;
