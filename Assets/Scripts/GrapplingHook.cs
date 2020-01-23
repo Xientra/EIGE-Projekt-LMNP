@@ -13,6 +13,8 @@ public class GrapplingHook : MonoBehaviour
     [SerializeField]
     private GameObject hookOrigin;
     [SerializeField]
+    private LineRenderer RopeOrigin;
+    [SerializeField]
     private Camera playerCamera;
     [SerializeField]
     private float shootingSpeed;
@@ -27,6 +29,8 @@ public class GrapplingHook : MonoBehaviour
     [SerializeField]
     private float growthExponent;
 
+    // rope"clone" that we instantiate
+    private LineRenderer rope;
     // hook"clone" that we instantiate
     private GameObject hook;
     // Rigidbodies
@@ -43,6 +47,9 @@ public class GrapplingHook : MonoBehaviour
     // Variables for positioning of hook
     private Quaternion hookRotaion;
     private Vector3 hookPosition;
+    // Variable for Points of Rope
+    private Vector3 ropePlayerPos;
+    private Vector3 ropeHookPos;
 
     // GameObject hook collided with and bool to show when
     [HideInInspector]
@@ -93,22 +100,27 @@ public class GrapplingHook : MonoBehaviour
                         state = State.Pulling;
                     }
                     Shooting();
+                    updateRope();
                     break;
                 case State.ComingBack:
                      if (collisionDetected)
                      {
-                        // Destroy grapplingHook
+                        // Destroy grapplingHook and Rope
                         Destroy(hook);
+                        Destroy(rope);
                         // change state back
                         state = State.waitingForShoot;
                      }
                     ComingBack();
+                    updateRope();
                     break;
                 case State.Pulling:
                     // when player wants to stop grappling
                     if (Input.GetKeyDown(stopGrapplingButton))
                     {
+                        // Destroy grapplingHOok and Rope
                         Destroy(hook);
+                        Destroy(rope);
                         // reset state
                         state = State.waitingForShoot;
                     }
@@ -121,9 +133,8 @@ public class GrapplingHook : MonoBehaviour
                         gameObject.SetActive(false);
                         player.GetComponent<PlayerGrapple>().grapplingAtm = false;
                     }*/
-
-
                     Pulling();
+                    updateRope();
                     break;
                 default:
                     break;
@@ -137,7 +148,7 @@ public class GrapplingHook : MonoBehaviour
         hookRotaion = playerCamera.transform.rotation;
         // hook position to the players position
         hookPosition = gameObject.transform.position;
-        hook = Instantiate(hookOrigin, hookPosition, hookRotaion,gameObject.transform);
+        hook = Instantiate(hookOrigin, hookPosition, hookRotaion);
         // update the startPosition for maxDistance calculation
         startPosition = hookPosition;
         // get the hooks rigidbody
@@ -145,7 +156,15 @@ public class GrapplingHook : MonoBehaviour
         // change state
         state = State.Shooting;
 
-
+        // Instantiate the Rope
+        // Rope first Point is Player
+        ropePlayerPos = gameObject.transform.position;
+        // Rope second Point is the Hook
+        ropeHookPos = hook.transform.position;
+        rope = Instantiate(RopeOrigin);
+        // Add positions to rope
+        rope.SetPosition(0, ropePlayerPos);
+        rope.SetPosition(1, ropeHookPos);
     }
     private void Shooting()
     {
@@ -200,5 +219,16 @@ public class GrapplingHook : MonoBehaviour
         hookRb.angularVelocity = Vector3.zero;
         hookRb.transform.parent = stuckTarget.transform;
         Destroy(hookRb);
+    }
+
+    private void updateRope()
+    {
+        // Rope first Point is Player
+        ropePlayerPos = gameObject.transform.position;
+        // Rope second Point is the Hook
+        ropeHookPos = hook.transform.position;
+        // Add positions to rope
+        rope.SetPosition(0, ropePlayerPos);
+        rope.SetPosition(1, ropeHookPos);
     }
 }
