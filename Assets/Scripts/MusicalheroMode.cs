@@ -8,7 +8,11 @@ public class MusicalheroMode : CameraManagement, GameMode {
     // falling keys
     [SerializeField]
     private GameObject keyChain;
-    [SerializeField]
+
+	[SerializeField]
+	private MusicalHeroScreen musicalHeroScreen;
+
+	[SerializeField]
     private float keySpeed;
 
     // set boundaries from Inspector
@@ -95,8 +99,9 @@ public class MusicalheroMode : CameraManagement, GameMode {
             UpdateScore(points);
 
             Destroy(keyObj);
-        }
-    }
+			// Script.instance.LetKeyFall(KeyCode keyCode); <------------------------ @Paul
+		}
+	}
 
     public void SetupScene() {
         TurnOnCamera();

@@ -24,7 +24,7 @@ public class Main : MonoBehaviour {
         GameModeManager.Instance.PassInput(KeyCode.Return);*/
 
         // switch GameMode
-        GameModeManager.Instance.SelectMode(orderOfModes[1]);
+        //GameModeManager.Instance.SelectMode(orderOfModes[1]);
 
         // testing-sequence for MusicalheroMode
         // TODO

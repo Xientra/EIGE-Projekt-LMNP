@@ -47,7 +47,7 @@ public class GameModeManager : MonoBehaviour {
     }
 
     public void PassInput(KeyCode keyCode) {
-        Debug.Log("Input?");
+        Debug.Log("Input? " + keyCode);
         current.ProcessInput(keyCode);
     }
 }

@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Build Scenes/Main Menu.unity
     guid: 3e0840daa19a6a3458d2c2ffaafe0f8f
   - enabled: 1
-    path: Assets/Scenes/Build Scenes/Keyboard Scene.unity
-    guid: d9dac19b08b196441a3963b723696b17
+    path: Assets/Scenes/Build Scenes/Level 1.unity
+    guid: 80554bbcbc0c3d1448d7057f7eec71a0
   - enabled: 1
-    path: Assets/Scenes/Build Scenes/Scene 3.unity
+    path: Assets/Scenes/Build Scenes/Level 2.unity
+    guid: c768ec525547f084da42c27802bf2a22
+  - enabled: 1
+    path: Assets/Scenes/Build Scenes/Level 3.unity
     guid: dbe2204aefa81b74eba0029faf4a70d6
   m_configObjects: {}

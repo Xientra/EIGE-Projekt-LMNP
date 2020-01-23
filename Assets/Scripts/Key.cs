@@ -43,8 +43,10 @@ public class Key : MonoBehaviour {
 
 	public void Press() {
 		if (animating == false) {
+
+			GameModeManager.Instance.PassInput(keyCode); // <------------------------ here @Nathalie
+
 			if (isCharacter) {
-				GameModeManager.Instance.PassInput(keyCode); // <------------------------ here @Nathalie
 				//TextInTheSky.instance.textUI.text += keyString; // just for testing
 			}
 
