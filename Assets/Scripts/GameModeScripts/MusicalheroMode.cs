@@ -5,30 +5,33 @@ using UnityEngine.UI;
 
 public class MusicalheroMode : CameraManagement, GameMode {
 
+    [SerializeField]
+    private MusicalheroScene scene;
+
     // falling keys
     [SerializeField]
     private GameObject keyChain;
-
-	[SerializeField]
-	private MusicalHeroScreen musicalHeroScreen;
-
 	[SerializeField]
     private float keySpeed;
 
-    // set boundaries from Inspector
+    // pointing system
     [SerializeField]
-    private float deathLine;
+    private int firstPoints = 50;
     [SerializeField]
-    private float greatUpper, greatLower;
+    private int secondPoints = 100;
     [SerializeField]
-    private float goodUpper, goodLower;
+    private int thirdPoints = 50;
     [SerializeField]
-    private float okayUpper, okayLower;
+    private int penalty = 75;
+
+    private float[] firstZone;
+    private float[] secondZone;
+    private float[] thirdZone;
 
     // scoring
     [SerializeField]
     private Text scoreboard;
-    private int score;
+    private int score = 0;
     private int highscore;
 
     // sound (TODO generalize)
@@ -37,20 +40,22 @@ public class MusicalheroMode : CameraManagement, GameMode {
     void Update() {
         // let keys fall from the sky continously
         keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
+
+        int penaltyPoints = scene.getPenaltyPoints();
+        if (penaltyPoints != 0) {
+            UpdateScore(penaltyPoints);
+        }
     }
 
     private int DecidePoints(float position) {
-        if (position > deathLine) {
-            return -100;
+        if (position < firstZone[0] && position > firstZone[1]) {
+            return firstPoints;
 
-        } else if (position < okayUpper && position > okayLower) {
-            return 100;
+        } else if (position < secondZone[0] && position > secondZone[1]) {
+            return secondPoints;
 
-        } else if (position < goodUpper && position > goodLower) {
-            return 200;
-
-        } else if (position < greatUpper && position > greatLower) {
-            return 300;
+        } else if (position < thirdZone[0] && position > thirdZone[1]) {
+            return thirdPoints;
 
         } else {
             return 0;
@@ -64,14 +69,13 @@ public class MusicalheroMode : CameraManagement, GameMode {
 
     // asesses if suitable GameObject is in camera's field of view 
     private bool isInFOV(KeyCode keyCode, out GameObject key) {
-        GameObject[] keys = keyChain.GetComponentsInChildren<GameObject>();
+        List<GameObject> visible = scene.GetVisibleKeys();
 
-        foreach (GameObject obj in keys) {
-            if (obj.name == keyCode.ToString()) {
-                if (obj.GetComponent<Renderer>().isVisible) {
-                    key = obj;
-                    return true;
-                }
+        foreach (GameObject obj in visible) {
+            if (obj.ToString() == keyCode.ToString()) {
+                visible.Remove(obj);
+                key = obj;
+                return true;
             }
         }
 
@@ -99,12 +103,18 @@ public class MusicalheroMode : CameraManagement, GameMode {
             UpdateScore(points);
 
             Destroy(keyObj);
-			// Script.instance.LetKeyFall(KeyCode keyCode); <------------------------ @Paul
+			// Script.instance.LetKeyFall(keyCode); <------------------------ @Paul
 		}
 	}
 
     public void SetupScene() {
         TurnOnCamera();
+
+        firstZone = scene.GetFirstZone();
+        secondZone = scene.GetSecondZone();
+        thirdZone = scene.GetThirdZone();
+        scene.SetPenalty(penalty);
+
         PlayTrack();
     }
 

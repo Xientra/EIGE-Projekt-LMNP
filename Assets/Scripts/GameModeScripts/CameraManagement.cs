@@ -7,7 +7,7 @@ public class CameraManagement : MonoBehaviour {
     [SerializeField]
     private Camera cam;
 
-    // ingame screen-object
+    // in-game screen-object
     [SerializeField]
     private RenderTexture target;
     
