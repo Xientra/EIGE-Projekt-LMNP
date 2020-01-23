@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +31,7 @@ public class MusicalheroMode : CameraManagement, GameMode {
 
     // scoring
     [SerializeField]
-    private Text scoreboard;
+    private TextMeshProUGUI scoreboard;
     private int score = 0;
     private int highscore;
 

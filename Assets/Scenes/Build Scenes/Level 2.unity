@@ -253,72 +253,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &94303319
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 94303322}
-  - component: {fileID: 94303321}
-  - component: {fileID: 94303320}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &94303320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94303319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &94303321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94303319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &94303322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94303319}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &211529902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,10 +1044,10 @@ GameObject:
   m_Component:
   - component: {fileID: 853035789}
   - component: {fileID: 853035787}
-  - component: {fileID: 853035786}
   - component: {fileID: 853035785}
+  - component: {fileID: 853035786}
   m_Layer: 0
-  m_Name: ScriptsObj (1)
+  m_Name: ScriptsObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1140,12 +1074,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 853035784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9924fe18640fde04f92ad772d8f404c1, type: 3}
+  m_Script: {fileID: 11500000, guid: b1163aabcb10aea4eab22f77bbc2ffd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderOfModes:
-  - TextadventureMode
-  - MusicalheroMode
+  firstRange: {fileID: 1069075474}
+  secondRange: {fileID: 1695442235}
+  thirdRange: {fileID: 1636593794}
 --- !u!114 &853035787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,19 +1092,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd911c9505d00b499fae91ba0784b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 1410632817}
   target: {fileID: 8400000, guid: a10f6fe5febba2340bc44a32f48c8954, type: 2}
+  scene: {fileID: 1661328559}
   keyChain: {fileID: 61944909}
-  musicalHeroScreen: {fileID: 1661328559}
   keySpeed: 1.5
-  deathLine: -3.01
-  greatUpper: 0
-  greatLower: 0
-  goodUpper: 0
-  goodLower: 0
-  okayUpper: 0
-  okayLower: 0
-  scoreboard: {fileID: 0}
+  firstPoints: 50
+  secondPoints: 100
+  thirdPoints: 50
+  penalty: 75
+  scoreboard: {fileID: 871581641}
 --- !u!4 &853035789
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,7 +1128,7 @@ GameObject:
   - component: {fileID: 871581642}
   - component: {fileID: 871581641}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1648,7 +1579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077699208}
   m_Layer: 0
-  m_Name: Musical Hero Stuff
+  m_Name: Musicalherp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2062,7 +1993,7 @@ PrefabInstance:
     - target: {fileID: 1303762479513956657, guid: 4a6e318a59057664d9964a95c59d77da,
         type: 3}
       propertyPath: m_Name
-      value: ColoredBar Botom
+      value: ColoredBar Bottom
       objectReference: {fileID: 0}
     - target: {fileID: 1303762479513956657, guid: 4a6e318a59057664d9964a95c59d77da,
         type: 3}
@@ -2158,11 +2089,11 @@ GameObject:
   - component: {fileID: 1661328562}
   - component: {fileID: 1661328561}
   - component: {fileID: 1661328560}
-  - component: {fileID: 1661328559}
   - component: {fileID: 1661328564}
   - component: {fileID: 1661328563}
+  - component: {fileID: 1661328559}
   m_Layer: 0
-  m_Name: Musical Hero Screen
+  m_Name: MusicalheroScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2177,11 +2108,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661328558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b46a63664aec7a4da7aabef4f1ad01c, type: 3}
+  m_Script: {fileID: 11500000, guid: b1163aabcb10aea4eab22f77bbc2ffd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limit1: {fileID: 0}
-  limit2: {fileID: 0}
+  firstRange: {fileID: 0}
+  secondRange: {fileID: 0}
+  thirdRange: {fileID: 0}
 --- !u!54 &1661328560
 Rigidbody:
   m_ObjectHideFlags: 0
