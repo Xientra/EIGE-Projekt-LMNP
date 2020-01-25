@@ -35,14 +35,17 @@ public class MusicalheroMode : CameraManagement, GameMode {
     private int score = 0;
     private int highscore;
 
-    // sound (TODO generalize)
-    private AudioClip currentTrack;
+	// sound (TODO generalize)
+	[SerializeField]
+	private AudioClip currentTrack;
 
     void Update() {
-        // let keys fall from the sky continously
-        keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
-
-        int penaltyPoints = scene.getPenaltyPoints();
+		if (AudioManager.instance.tetrisTheme.isPlaying == true) {
+			// let keys fall from the sky continously
+			keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
+		}
+		
+		int penaltyPoints = scene.getPenaltyPoints();
         if (penaltyPoints != 0) {
             UpdateScore(penaltyPoints);
         }
@@ -126,4 +129,30 @@ public class MusicalheroMode : CameraManagement, GameMode {
     override public string ToString() {
         return "MusicalheroMode";
     }
+
+
+	/* -----------------------=== Debug Stuff Paul did ===----------------------- */
+
+	[Header("DEBUG:")]
+	public bool updateInOnValidate = false;
+	[Range(0f, 1f)]
+	public float songCompleation = 0;
+
+	// OnValidate is called whenever the instector updates (including whenever something changed in it)
+	private void OnValidate() {
+		if (updateInOnValidate == true) {
+			keyChain.transform.position = new Vector3(keyChain.transform.position.x, -keySpeed * currentTrack.length * songCompleation, keyChain.transform.position.z);
+		}
+	}
+
+
+	private void Start() {
+		StartCoroutine(StartAfter(2));
+	}
+
+	private IEnumerator StartAfter(float delay) {
+		yield return new WaitForSeconds(delay);
+
+		AudioManager.instance.PlaySound("tetrisTheme");
+	}
 }
