@@ -112,7 +112,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
             Destroy(keyObj);
             Debug.Log("Destroyed!");
 			// Script.instance.LetKeyFall(keyCode); <------------------------ @Paul
-
         }
 	}
 
