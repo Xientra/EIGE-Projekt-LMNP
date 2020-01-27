@@ -7,7 +7,7 @@ public class PressF : MonoBehaviour
     private bool canBeEnded = false;
     private bool swappedScreen = false;
     [SerializeField]
-    private GameObject endScreenTextMeshPro;
+    private GameObject endScreen;
     [SerializeField]
     KeyCode exitKey = KeyCode.Escape;
 
