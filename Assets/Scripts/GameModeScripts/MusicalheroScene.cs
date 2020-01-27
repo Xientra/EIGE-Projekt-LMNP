@@ -24,7 +24,7 @@ public class MusicalheroScene : MonoBehaviour {
     private void OnTriggerExit(Collider other) {
         visibleKeys.Remove(other.gameObject);
         penaltyPoints += penalty;
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject); //pls ask paul why
     }
 
     public List<GameObject> GetVisibleKeys() {
