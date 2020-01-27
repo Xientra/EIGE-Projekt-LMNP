@@ -336,9 +336,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   pressState: 0
   hold: 0
-  isFalling: 0
-  fallingGravity: 1
-  startFallingSpeed: -0.3
   updateApperance: 1
   debugging: 0
   originalPositionPlaceHolder: {x: 0, y: 0, z: 0}

@@ -11,7 +11,7 @@ public class GameModeManager : MonoBehaviour {
 
     private void Awake() {
         if (Instance == null) {
-            Debug.Log("Instantiate...");
+            Debug.Log("Instantiating GameModeManager...");
             Instance = this;
         }
     }
@@ -47,7 +47,7 @@ public class GameModeManager : MonoBehaviour {
     }
 
     public void PassInput(KeyCode keyCode) {
-        Debug.Log("Input? " + keyCode);
+        Debug.Log("Input: " + keyCode);
         current.ProcessInput(keyCode);
     }
 }

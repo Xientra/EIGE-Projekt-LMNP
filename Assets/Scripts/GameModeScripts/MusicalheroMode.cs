@@ -35,9 +35,9 @@ public class MusicalheroMode : CameraManagement, GameMode {
     private int score = 0;
     private int highscore;
 
-	// sound (TODO generalize)
+	/*// sound (TODO generalize)
 	[SerializeField]
-	private AudioClip currentTrack;
+	private AudioClip currentTrack;*/
 
     void Update() {
 		if (AudioManager.instance.tetrisTheme.isPlaying == true) {
@@ -90,18 +90,16 @@ public class MusicalheroMode : CameraManagement, GameMode {
         return false;
     }
 
-    private void LoadTrack(string name) {
+    /*private void LoadTrack(string name) {
         currentTrack = Resources.Load<AudioClip>("Musicalhero/" + name);
     }
 
-    private void PlayTrack() {
-		/*
-        LoadTrack("tetris");
+    private void PlayTrack(string name) {
+        LoadTrack(name);
         AudioSource source = gameObject.AddComponent<AudioSource>();
         source.clip = currentTrack;
         source.Play();
-		*/
-    }
+    }*/
 
     public void ProcessInput(KeyCode keyCode) {
         Debug.Log("Processing...");
@@ -127,7 +125,7 @@ public class MusicalheroMode : CameraManagement, GameMode {
         scene.SetPenalty(penalty);
 
         UpdateScore(0);
-        PlayTrack();
+        //PlayTrack();
     }
 
     public void CloseScene() {
