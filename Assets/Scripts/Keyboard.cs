@@ -19,14 +19,9 @@ public class Keyboard : MonoBehaviour {
 		}
 	}
 
-	private void Start() {
-		LetKeyFall(KeyCode.F);
-	}
-
 	public void LetKeyFall(KeyCode keyCode) {
 		foreach (Transform row in keyParents) {
 			foreach (Transform t in row) {
-				Debug.Log(t.name);
 				Key k = t.GetComponent<Key>();
 				if (k != null) {
 					if (k.keyCode == keyCode) {
