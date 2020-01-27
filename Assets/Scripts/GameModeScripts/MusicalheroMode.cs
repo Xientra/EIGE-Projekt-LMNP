@@ -95,10 +95,12 @@ public class MusicalheroMode : CameraManagement, GameMode {
     }
 
     private void PlayTrack() {
+		/*
         LoadTrack("tetris");
         AudioSource source = gameObject.AddComponent<AudioSource>();
         source.clip = currentTrack;
         source.Play();
+		*/
     }
 
     public void ProcessInput(KeyCode keyCode) {

@@ -10,7 +10,7 @@ public class ScriptForLazyPeople : MonoBehaviour {
 
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.L)) {
+		if (Input.GetKeyDown(KeyCode.R)) {
 			Instantiate(prefabToSpawn, spawnPosition.position, prefabToSpawn.transform.rotation, toParentTo);
 		}
 	}

@@ -18,6 +18,7 @@ public class Stomp : MonoBehaviour {
 	public float stompingSpeedMultiplier = 0.5f;
 
 	[Header("Key Jump:")]
+	public bool canKeyJump = false;
 	[Tooltip("How long the key as to be held down to activate a key jump.")]
 	public float keyJumpTime = 2f;
 	[Tooltip("A key jump performs a normal jump but with this as jumpForce multipier.")]
@@ -105,14 +106,15 @@ public class Stomp : MonoBehaviour {
 		// wait until the player releases the stomp key
 		while (currentPhase != Phases.releasedKey) {
 			yield return new WaitForEndOfFrame();
+			if (canKeyJump == true) {
+				if (keyJumpTimeStamp < Time.time && willKeyJump == false) {
+					willKeyJump = true;
 
-			if (keyJumpTimeStamp < Time.time && willKeyJump == false) {
-				willKeyJump = true;
 
-
-				// creates visual effects
-				Destroy(Instantiate(effectPrefabs.keyJumpReady, transform.position, Quaternion.identity), 5f);
-				continiousEffect = Instantiate(effectPrefabs.keyJumpContinious, transform);
+					// creates visual effects
+					Destroy(Instantiate(effectPrefabs.keyJumpReady, transform.position, Quaternion.identity), 5f);
+					continiousEffect = Instantiate(effectPrefabs.keyJumpContinious, transform);
+				}
 			}
 		}
 		//if (currentPhase != Phases.releasedKey) yield return new WaitUntil(() => currentPhase == Phases.releasedKey);
