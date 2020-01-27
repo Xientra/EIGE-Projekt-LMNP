@@ -32,22 +32,43 @@ public class Key : MonoBehaviour {
 
 	public bool hold = false;
 
+	[Header("Falling:")]
+	public bool isFalling = false;
+	public float fallingGravity = 1f;
+	public float startFallingSpeed = 0.1f;
+	private float fallingSpeed = 0;
+
 	void Start() {
 		originalPosition = transform.position;
+		fallingSpeed = startFallingSpeed;
 	}
 
 	// moves the key based on pressState and maxDepth
 	private void FixedUpdate() {
-		transform.position = (Vector3.down * maxDepth * pressState /* * transform.lossyScale.y*/) + originalPosition;
+		if (isFalling == false || animating == true ) {
+			transform.position = (Vector3.down * maxDepth * pressState /* * transform.lossyScale.y*/) + originalPosition;
+		}
+		else {
+			fallingSpeed += fallingGravity * Time.fixedDeltaTime;
+			transform.position += Vector3.down * fallingSpeed;
+
+			if (transform.position.y < -50) {
+				isFalling = false;
+				transform.position = originalPosition;
+				this.gameObject.SetActive(false);
+			}
+		}
 	}
 
 	public void Press() {
 		if (animating == false) {
 
+			Fall();
+
 			try {
 				GameModeManager.Instance.PassInput(keyCode); // <------------------------ here @Nathalie
-			} catch (System.Exception) { 
-			
+			} catch (System.Exception e) {
+				Debug.LogError("Falied to Pass Input to GameModeManager\n" + e.Message);
 			}
 
 			//if (isCharacter) {
@@ -95,7 +116,12 @@ public class Key : MonoBehaviour {
 	}
 
 	public void Fall() {
-		Debug.Log("i'm falling: " + keyCode);
+		Debug.Log("hep! i'm falling! " + keyCode);
+
+		//Collider col = GetComponent<Collider>();
+		//col.enabled = false;
+		isFalling = true;
+		fallingSpeed = startFallingSpeed;
 	}
 
 
