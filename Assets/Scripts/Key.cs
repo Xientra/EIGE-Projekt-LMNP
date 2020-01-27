@@ -63,7 +63,7 @@ public class Key : MonoBehaviour {
 	public void Press() {
 		if (animating == false) {
 
-			Fall();
+			AudioManager.instance.PlaySound("keyClack");
 
 			try {
 				GameModeManager.Instance.PassInput(keyCode); // <------------------------ here @Nathalie
@@ -156,7 +156,8 @@ public class Key : MonoBehaviour {
 				gameObject.name = "Key \"" + keyCode + "\"";
 			}
 			if (isCharacter)
-				text.text = keyString;
+				if (text != null)
+					text.text = keyString;
 		}
 
 		if (debugging) {

@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour {
 				stompSound.Play();
 				break;
 			case "keyClack":
+				keyClackSound.pitch = Random.Range(0.3f, 1f);
 				keyClackSound.Play();
 				break;
 			case "grappleShoot":
