@@ -35,9 +35,9 @@ public class MusicalheroMode : CameraManagement, GameMode {
     private int score = 0;
     private int highscore;
 
-	/*// sound (TODO generalize)
+	// sound
 	[SerializeField]
-	private AudioClip currentTrack;*/
+	private AudioClip currentTrack;
 
     void Update() {
 		if (AudioManager.instance.tetrisTheme.isPlaying == true) {
