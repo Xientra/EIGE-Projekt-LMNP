@@ -94,6 +94,10 @@ public class Key : MonoBehaviour {
 		return time / 2;
 	}
 
+	public void Fall() {
+		Debug.Log("i'm falling: " + keyCode);
+	}
+
 
 	/* -===== Debug =====- */
 
