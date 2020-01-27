@@ -29,7 +29,8 @@ public class Dash : MovementBase
             currentAmountOfDashesRemaining--;
             playerMovement.dashSpeed = dashSettings.dashSpeed;
             isDashing = true;
-        }
+			AudioManager.instance.PlaySound("dash");
+		}
 
         if (playerMovement.isGrounded())
         {

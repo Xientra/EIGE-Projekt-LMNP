@@ -26,7 +26,7 @@ public class MusicalheroScene : MonoBehaviour {
         visibleKeys.Remove(other.gameObject);
         Debug.Log("Key left: " + other.gameObject.ToString());
         penaltyPoints += penalty;
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject); //pls ask paul why
     }
 
     public List<GameObject> GetVisibleKeys() {

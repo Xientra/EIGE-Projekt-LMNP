@@ -44,11 +44,15 @@ public class Key : MonoBehaviour {
 	public void Press() {
 		if (animating == false) {
 
-			GameModeManager.Instance.PassInput(keyCode); // <------------------------ here @Nathalie
-
-			if (isCharacter) {
-				//TextInTheSky.instance.textUI.text += keyString; // just for testing
+			try {
+				GameModeManager.Instance.PassInput(keyCode); // <------------------------ here @Nathalie
+			} catch (System.Exception) { 
+			
 			}
+
+			//if (isCharacter) {
+			//	TextInTheSky.instance.textUI.text += keyString; // just for testing
+			//}
 
 			// starts the animation
 			StartCoroutine(PressAnimation());
