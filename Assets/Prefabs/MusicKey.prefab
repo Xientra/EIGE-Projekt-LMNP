@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2278715620154154147}
   - component: {fileID: 8138346957790907411}
+  - component: {fileID: 6255290081240418373}
   m_Layer: 8
   m_Name: MusicKey
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCode: 0
+--- !u!65 &6255290081240418373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2278715620154154151}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4905563357134630663
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +176,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -7.5, y: 7.5}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &920889282491660096
 CanvasRenderer:
@@ -218,7 +232,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 29.65
+  m_fontSize: 59.3
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1

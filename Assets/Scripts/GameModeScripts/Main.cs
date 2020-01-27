@@ -10,7 +10,7 @@ public class Main : MonoBehaviour {
 
     private void Start() {
         GameModeManager.Instance.AcceptModes(transform.GetComponents<GameMode>());
-        GameModeManager.Instance.SelectMode(orderOfModes[0]);
+        //GameModeManager.Instance.SelectMode(orderOfModes[0]);
 
         /*// testing-sequence for TextadventureMode
         GameModeManager.Instance.PassInput(KeyCode.M);
@@ -24,9 +24,9 @@ public class Main : MonoBehaviour {
         GameModeManager.Instance.PassInput(KeyCode.Return);*/
 
         // switch GameMode
-        //GameModeManager.Instance.SelectMode(orderOfModes[1]);
+        GameModeManager.Instance.SelectMode(orderOfModes[1]);
 
         // testing-sequence for MusicalheroMode
-        // TODO
+        GameModeManager.Instance.PassInput(KeyCode.A);
     }
 }

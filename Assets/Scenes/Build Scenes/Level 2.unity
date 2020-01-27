@@ -144,7 +144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61944909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.54, y: 3.3, z: -17.92}
+  m_LocalPosition: {x: 3.54, y: 12.47, z: -17.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 341484540}
@@ -454,6 +454,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: A
       objectReference: {fileID: 0}
+    - target: {fileID: 8138346957790907411, guid: f3a8ed65c05f14543bd110351ab5079e,
+        type: 3}
+      propertyPath: keyCode
+      value: 97
+      objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_text
@@ -462,29 +467,30 @@ PrefabInstance:
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_fontSize
-      value: 35.8
+      value: 71.6
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6255290081240418373, guid: f3a8ed65c05f14543bd110351ab5079e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f3a8ed65c05f14543bd110351ab5079e, type: 3}
 --- !u!4 &341484540 stripped
 Transform:
@@ -576,32 +582,42 @@ PrefabInstance:
     - target: {fileID: 2278715620154154151, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_Name
-      value: B
+      value: H
+      objectReference: {fileID: 0}
+    - target: {fileID: 8138346957790907411, guid: f3a8ed65c05f14543bd110351ab5079e,
+        type: 3}
+      propertyPath: keyCode
+      value: 104
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_text
-      value: B
+      value: H
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 71.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a8ed65c05f14543bd110351ab5079e, type: 3}
@@ -610,6 +626,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2278715620154154147, guid: f3a8ed65c05f14543bd110351ab5079e,
     type: 3}
   m_PrefabInstance: {fileID: 435511196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &557965243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1303762479513956657, guid: 4a6e318a59057664d9964a95c59d77da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1695442234}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
@@ -1046,6 +1068,7 @@ GameObject:
   - component: {fileID: 853035787}
   - component: {fileID: 853035785}
   - component: {fileID: 853035786}
+  - component: {fileID: 853035788}
   m_Layer: 0
   m_Name: ScriptsObj
   m_TagString: Untagged
@@ -1077,9 +1100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1163aabcb10aea4eab22f77bbc2ffd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstRange: {fileID: 1069075474}
-  secondRange: {fileID: 1695442235}
-  thirdRange: {fileID: 1636593794}
+  firstRange: {fileID: 1581381299}
+  secondRange: {fileID: 557965243}
+  thirdRange: {fileID: 1763232791}
 --- !u!114 &853035787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,7 +1117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1410632817}
   target: {fileID: 8400000, guid: a10f6fe5febba2340bc44a32f48c8954, type: 2}
-  scene: {fileID: 1661328559}
+  scene: {fileID: 853035786}
   keyChain: {fileID: 61944909}
   keySpeed: 1.5
   firstPoints: 50
@@ -1102,6 +1125,21 @@ MonoBehaviour:
   thirdPoints: 50
   penalty: 75
   scoreboard: {fileID: 871581641}
+--- !u!114 &853035788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853035784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac0122cc5d53c34999a2a2a90d0bb2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderOfModes:
+  - TextadventureMode
+  - MusicalheroMode
 --- !u!4 &853035789
 Transform:
   m_ObjectHideFlags: 0
@@ -1150,8 +1188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.8, y: 42.1}
-  m_SizeDelta: {x: 10, y: 10}
+  m_AnchoredPosition: {x: 1, y: 42.1}
+  m_SizeDelta: {x: 20, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871581641
 MonoBehaviour:
@@ -1206,7 +1244,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 260
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1579,7 +1617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077699208}
   m_Layer: 0
-  m_Name: Musicalherp
+  m_Name: Musicalhero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1983,6 +2021,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1581381299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1303762479513956657, guid: 4a6e318a59057664d9964a95c59d77da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1069075473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1636593793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2270,25 +2314,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: C
       objectReference: {fileID: 0}
+    - target: {fileID: 8138346957790907411, guid: f3a8ed65c05f14543bd110351ab5079e,
+        type: 3}
+      propertyPath: keyCode
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
@@ -2298,7 +2347,7 @@ PrefabInstance:
     - target: {fileID: 8567698446790448828, guid: f3a8ed65c05f14543bd110351ab5079e,
         type: 3}
       propertyPath: m_fontSize
-      value: 20
+      value: 71.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a8ed65c05f14543bd110351ab5079e, type: 3}
@@ -2402,6 +2451,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2081646731840379943, guid: 4a6e318a59057664d9964a95c59d77da,
     type: 3}
   m_PrefabInstance: {fileID: 1695442234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1763232791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1303762479513956657, guid: 4a6e318a59057664d9964a95c59d77da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1636593793}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1889695908
 GameObject:

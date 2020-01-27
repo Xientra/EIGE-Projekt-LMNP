@@ -5,11 +5,11 @@ using UnityEngine;
 public class MusicalheroScene : MonoBehaviour {
 
     [SerializeField]
-    private Transform firstRange;
+    private GameObject firstRange;
     [SerializeField]
-    private Transform secondRange;
+    private GameObject secondRange;
     [SerializeField]
-    private Transform thirdRange;
+    private GameObject thirdRange;
 
     private List<GameObject> visibleKeys = new List<GameObject>();
 
@@ -17,12 +17,14 @@ public class MusicalheroScene : MonoBehaviour {
     private int penaltyPoints = 0;
 
     private void OnTriggerEnter(Collider other) {
+        Debug.Log("Key entered: " + other.gameObject.ToString());
         visibleKeys.Add(other.gameObject);
     }
 
 
     private void OnTriggerExit(Collider other) {
         visibleKeys.Remove(other.gameObject);
+        Debug.Log("Key left: " + other.gameObject.ToString());
         penaltyPoints += penalty;
         Destroy(other.gameObject);
     }
@@ -41,7 +43,7 @@ public class MusicalheroScene : MonoBehaviour {
         this.penalty = penalty;
     }
 
-    private float[] CalculateLimits(Transform range) {
+    private float[] CalculateLimits(GameObject range) {
 
         Renderer r = range.GetComponent<Renderer>();
         float upper = r.bounds.center.y + r.bounds.extents.y;
