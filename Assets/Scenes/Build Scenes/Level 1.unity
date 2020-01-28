@@ -524,7 +524,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 8.925915e-39, y: 1.8600415e-13, z: 8.41e-43, w: 2.41e-43}
+  m_BoundingSphereOverride: {x: 8.35e-43, y: NaN, z: 8.35e-43, w: -3.4529724e-26}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   inputText: {fileID: 1522278860}
   pageText: {fileID: 1800893233}
   answersText: {fileID: 642607844}
-  firstPage: 0
+  firstPage: 2
   lastPage: 4
 --- !u!114 &1500010203
 MonoBehaviour:

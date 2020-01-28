@@ -48,13 +48,13 @@ public class GameModeManager : MonoBehaviour {
     }
 
     public void PassInput(KeyCode keyCode) {
-        Debug.Log("Input: " + keyCode);
+        //Debug.Log("Input: " + keyCode);
         current.ProcessInput(keyCode);
     }
 
     public void NextScene() {
         SceneManager.SetActiveScene(
             SceneManager.GetSceneByBuildIndex(
-                SceneManager.GetActiveScene().buildIndex + 1));
+                (int) SceneManager.GetActiveScene().buildIndex + 1));
     }
 }
