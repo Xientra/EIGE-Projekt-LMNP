@@ -29,8 +29,6 @@ public class TextadventureMode : CameraManagement, GameMode {
     private TextAsset page;
     private Dictionary<string, int> answers = new Dictionary<string, int>();
 
-    private bool backspacePressed = false;
-
     // used in ProcessInput()
     List<KeyCode> letterKeys = new List<KeyCode>() {
         KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z,
@@ -91,9 +89,15 @@ public class TextadventureMode : CameraManagement, GameMode {
         ClearInput();
 
         // valid next page
-        if ((nextPage >= 0) && (nextPage < lastPage)) {
-            ReadFile(nextPage);
-            UpdateEntireCanvas();
+        if (nextPage >= 0) {
+            if (nextPage < lastPage) {
+                ReadFile(nextPage);
+                UpdateEntireCanvas();
+            }
+            else {
+                // end mode
+                CloseScene();
+            }
         }
     }
 
@@ -131,13 +135,7 @@ public class TextadventureMode : CameraManagement, GameMode {
             NextPage();
 
         } else if (keyCode == KeyCode.Backspace) {
-            if (backspacePressed) {
-                ClearInput();
-                backspacePressed = false;
-            } else {
-                RemoveLetter();
-                backspacePressed = true;
-            }
+            RemoveLetter();
 
         } else if (letterKeys.Contains(keyCode)) {
             switch (keyCode) {
@@ -178,9 +176,10 @@ public class TextadventureMode : CameraManagement, GameMode {
 
     public void CloseScene() {
         TurnOffCamera();
+        GameModeManager.Instance.NextScene();
     }
     
     override public string ToString() {
-        return "TextadventureMode";
+        return "Textadventure";
     }
 }

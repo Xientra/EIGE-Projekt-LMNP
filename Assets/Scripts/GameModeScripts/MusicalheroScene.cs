@@ -14,14 +14,14 @@ public class MusicalheroScene : MonoBehaviour {
     private List<GameObject> visibleKeys = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log("Key entered: " + other.gameObject.ToString());
+        //Debug.Log("Key entered: " + other.gameObject.ToString());
         visibleKeys.Add(other.gameObject);
     }
 
 
     private void OnTriggerExit(Collider other) {
         visibleKeys.Remove(other.gameObject);
-        Debug.Log("Key left: " + other.gameObject.ToString());
+        //Debug.Log("Key left: " + other.gameObject.ToString());
 
         MusicalheroScore.Instance.DeductPoints();
         Destroy(other.gameObject);

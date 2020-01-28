@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameModeManager : MonoBehaviour {
 
@@ -49,5 +50,9 @@ public class GameModeManager : MonoBehaviour {
     public void PassInput(KeyCode keyCode) {
         Debug.Log("Input: " + keyCode);
         current.ProcessInput(keyCode);
+    }
+
+    public void NextScene() {
+        SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

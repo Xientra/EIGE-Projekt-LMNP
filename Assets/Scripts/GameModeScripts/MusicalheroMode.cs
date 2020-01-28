@@ -114,7 +114,7 @@ public class MusicalheroMode : CameraManagement, GameMode {
     }
 
     override public string ToString() {
-        return "MusicalheroMode";
+        return "Musicalhero";
     }
 
 

@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicalheroMain : MonoBehaviour {
+public class Main : MonoBehaviour {
+
+    [SerializeField]
+    string gameMode;
 
     private void Start() {
         GameModeManager.Instance.AcceptModes(transform.GetComponents<GameMode>());
-        GameModeManager.Instance.SelectMode("Musicalhero");
+        GameModeManager.Instance.SelectMode(gameMode);
     }
 }

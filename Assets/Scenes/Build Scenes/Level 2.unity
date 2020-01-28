@@ -6269,6 +6269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6507678610a124c907ceadd8920b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMode: Musicalhero
 --- !u!4 &853035789
 Transform:
   m_ObjectHideFlags: 0
@@ -6295,7 +6296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45131740e41482846b69999ee626d534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreboard: {fileID: 0}
+  scoreboard: {fileID: 871581641}
 --- !u!1 &860007638
 GameObject:
   m_ObjectHideFlags: 0
