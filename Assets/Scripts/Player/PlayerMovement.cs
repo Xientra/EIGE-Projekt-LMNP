@@ -45,6 +45,7 @@ public class PlayerMovement : MovementBase {
 
 	void Start() {
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		cameraAnchorRotationOffset = transform.rotation;
 	}
 
