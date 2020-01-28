@@ -1,5 +1,6 @@
-Welcome to your new Job, Programmer01567. What will your first lines of code be?
+Welcome to your new Job, Programmer01567.
+What will your first lines of code be?
 #
-"Hello World!">2
+Hello World!>2
 #
 System.exit(0);>3

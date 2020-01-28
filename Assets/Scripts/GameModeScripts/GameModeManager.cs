@@ -53,8 +53,7 @@ public class GameModeManager : MonoBehaviour {
     }
 
     public void NextScene() {
-        SceneManager.SetActiveScene(
-            SceneManager.GetSceneByBuildIndex(
-                (int) SceneManager.GetActiveScene().buildIndex + 1));
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(sceneIndex);
     }
 }

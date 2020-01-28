@@ -2,4 +2,4 @@ A defiant one, apparently. Let's see where this gets you in this world...
 
 Input the following to move on:
 #
-I am sorry.>4
+I am sorry>4

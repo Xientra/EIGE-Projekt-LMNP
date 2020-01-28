@@ -1,5 +1,5 @@
 Okay, this concludes your training. Please hand in a copy of your own, original programming language by tomorrow afternoon.
 #
-Ouch.>4
+Ouch>4
 #
 Okay then, boss.>4

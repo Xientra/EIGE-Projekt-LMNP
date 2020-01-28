@@ -1,9 +1,8 @@
 Instructions:
-
 Use 'WASD' to move around
 Press 'Shift' to Dash
 Press 'Strg' to Stomp on a Key
-Press '' to use your Grappling Hook
+Press 'E' to use your Grappling Hook
 
 Enter 'OK' to Continue
 #

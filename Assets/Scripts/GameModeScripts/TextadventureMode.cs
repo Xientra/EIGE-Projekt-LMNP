@@ -16,14 +16,16 @@ public class TextadventureMode : CameraManagement, GameMode {
 
     // set page-limits from Inspector
     [SerializeField]
-    private int firstPage = 1;
+    private int firstPage = 0;
     [SerializeField]
-    private int lastPage = 5;
+    private int lastPage = 4;
 
     // currently displayed
     private string inputString = "";
-    private string pageString;
-    private string answersString;
+    private string pageString = "";
+    private string answersString = "";
+
+    private bool instructionsPage = true;
 
     // other Assets
     private TextAsset page;
@@ -124,7 +126,10 @@ public class TextadventureMode : CameraManagement, GameMode {
             }
             answers.Add(parts[0].Trim().ToUpper(), nextPage);
 
-            answersString += parts[0] + "\n";
+            if (!instructionsPage) {
+                answersString += parts[0] + "\n";
+            }
+            instructionsPage = false;
         }
 
     }
