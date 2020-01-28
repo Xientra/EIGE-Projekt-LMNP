@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Main : MonoBehaviour {
+public class TextadventureMain : MonoBehaviour {
 
-    // set order of GameModes from Inspector
+    /*// set order of GameModes from Inspector
     [SerializeField]
-    string[] orderOfModes = { "TextadventureMode", "MusicalheroMode" };
+    string[] orderOfModes = { "TextadventureMode", "MusicalheroMode" };*/
 
     private void Start() {
         GameModeManager.Instance.AcceptModes(transform.GetComponents<GameMode>());
-        //GameModeManager.Instance.SelectMode(orderOfModes[0]);
+        GameModeManager.Instance.SelectMode("Textadventure");
 
         /*// testing-sequence for TextadventureMode
         GameModeManager.Instance.PassInput(KeyCode.M);
@@ -22,11 +22,5 @@ public class Main : MonoBehaviour {
         GameModeManager.Instance.PassInput(KeyCode.E);
         GameModeManager.Instance.PassInput(KeyCode.Question);
         GameModeManager.Instance.PassInput(KeyCode.Return);*/
-
-        // switch GameMode
-        GameModeManager.Instance.SelectMode(orderOfModes[1]);
-
-        // testing-sequence for MusicalheroMode
-        GameModeManager.Instance.PassInput(KeyCode.A);
     }
 }

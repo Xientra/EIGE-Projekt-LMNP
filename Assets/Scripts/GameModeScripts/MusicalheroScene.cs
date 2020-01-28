@@ -11,10 +11,10 @@ public class MusicalheroScene : MonoBehaviour {
     [SerializeField]
     private GameObject thirdRange;
 
-    private List<GameObject> visibleKeys = new List<GameObject>();
+    [SerializeField]
+    private int penaltyPoints = 100;
 
-    private int penalty;
-    private int penaltyPoints = 0;
+    private List<GameObject> visibleKeys = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Key entered: " + other.gameObject.ToString());
@@ -26,22 +26,12 @@ public class MusicalheroScene : MonoBehaviour {
         visibleKeys.Remove(other.gameObject);
         Debug.Log("Key left: " + other.gameObject.ToString());
 
-        penaltyPoints += penalty;
+        MusicalheroScore.Instance.DeductPoints(penaltyPoints);
         Destroy(other.gameObject);
     }
 
     public List<GameObject> GetVisibleKeys() {
         return visibleKeys;
-    }
-
-    public int getPenaltyPoints() {
-        int points = penaltyPoints;
-        penaltyPoints = 0;
-        return points;
-    }
-
-    public void SetPenalty(int penalty) {
-        this.penalty = penalty;
     }
 
     private float[] CalculateLimits(GameObject range) {

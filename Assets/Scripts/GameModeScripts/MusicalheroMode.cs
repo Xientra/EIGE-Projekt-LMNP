@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +11,7 @@ public class MusicalheroMode : CameraManagement, GameMode {
     // falling keys
     [SerializeField]
     private GameObject keyChain;
-	[SerializeField]
+    [SerializeField]
     private float keySpeed;
 
     // pointing system
@@ -28,12 +27,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
     private float[] firstZone;
     private float[] secondZone;
     private float[] thirdZone;
-
-    // scoring
-    [SerializeField]
-    private TextMeshProUGUI scoreboard;
-    private int score = 0;
-    private int highscore;
 
 	// sound
 	[SerializeField]
@@ -64,11 +57,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
         } else {
             return 0;
         }
-    }
-
-    private void UpdateScore(int points) {
-        score += points;
-        scoreboard.text = score.ToString();
     }
 
     // asesses if suitable GameObject is in camera's field of view 
@@ -107,11 +95,11 @@ public class MusicalheroMode : CameraManagement, GameMode {
         if (isInFOV(keyCode, out keyObj)) {
             float position = keyObj.transform.position.y;
             int points = DecidePoints(position);
-            UpdateScore(points);
+            MusicalheroScore.Instance.AddPoints(points);
 
             Destroy(keyObj);
             Debug.Log("Destroyed!");
-			// Script.instance.LetKeyFall(keyCode); <------------------------ @Paul
+            //Keyboard.instance.LetKeyFall(keyCode); TODO
         }
 	}
 
@@ -124,7 +112,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
         scene.SetPenalty(penalty);
 
         UpdateScore(0);
-        //PlayTrack();
     }
 
     public void CloseScene() {
@@ -149,7 +136,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
 			keyChain.transform.position = new Vector3(keyChain.transform.position.x, -keySpeed * currentTrack.length * songCompleation, keyChain.transform.position.z);
 		}
 	}
-
 
 	private void Start() {
 		StartCoroutine(StartAfter(2));
