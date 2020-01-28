@@ -98,6 +98,8 @@ public class GrapplingHook : MonoBehaviour
                         collidedObject = null;
                         // next state
                         state = State.Pulling;
+						// play sound
+						AudioManager.instance.PlaySound("grappleHit");
                     }
                     Shooting();
                     updateRope();

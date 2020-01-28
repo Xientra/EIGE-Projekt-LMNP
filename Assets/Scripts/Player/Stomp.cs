@@ -49,7 +49,7 @@ public class Stomp : MonoBehaviour {
 			playerMovement.preventJumping = true;
 			playerMovement.speedMultiplier = stompingSpeedMultiplier;
 
-			AudioManager.instance.PlaySound("stomp");
+			//AudioManager.instance.PlaySound("stomp");
 		}
 
 		// debug
