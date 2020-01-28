@@ -6197,6 +6197,7 @@ GameObject:
   - component: {fileID: 853035787}
   - component: {fileID: 853035785}
   - component: {fileID: 853035786}
+  - component: {fileID: 853035790}
   - component: {fileID: 853035788}
   m_Layer: 0
   m_Name: Musicalhero Script
@@ -6252,8 +6253,7 @@ MonoBehaviour:
   firstPoints: 50
   secondPoints: 100
   thirdPoints: 50
-  penalty: 75
-  scoreboard: {fileID: 871581641}
+  penaltyPoints: 75
   currentTrack: {fileID: 8300000, guid: 6f45d09bc602b57428e5fb716a6974c8, type: 3}
   updateInOnValidate: 0
   songCompleation: 0
@@ -6266,12 +6266,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 853035784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac0122cc5d53c34999a2a2a90d0bb2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e6507678610a124c907ceadd8920b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderOfModes:
-  - TextadventureMode
-  - MusicalheroMode
 --- !u!4 &853035789
 Transform:
   m_ObjectHideFlags: 0
@@ -6286,6 +6283,19 @@ Transform:
   m_Father: {fileID: 1077699208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853035790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853035784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45131740e41482846b69999ee626d534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboard: {fileID: 0}
 --- !u!1 &860007638
 GameObject:
   m_ObjectHideFlags: 0
