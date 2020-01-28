@@ -11,10 +11,13 @@ public class PressF : MonoBehaviour
     [SerializeField]
     KeyCode exitKey = KeyCode.Escape;
 
+	bool fWasPressed = false;
+
     void Update()
     {
-        if(gameObject.GetComponent<Key>().pressState > 0)
+        if(fWasPressed == false && gameObject.GetComponent<Key>().isPressed == true)
         {
+			fWasPressed = true;
             swapToEndScreen();
         }
         if(Input.GetKeyDown(exitKey) && canBeEnded)

@@ -29,6 +29,8 @@ public class Key : MonoBehaviour {
 
 	[Range(0f, 1f)]
 	public float pressState = 0; // how far the key has been pressed
+	/// <summary> if the Key is currently pressed down </summary>
+	public bool isPressed = false;
 
 	public bool hold = false;
 
@@ -62,6 +64,7 @@ public class Key : MonoBehaviour {
 
 	public void Press() {
 		if (animating == false) {
+			isPressed = true;
 
 			AudioManager.instance.PlaySound("keyClack");
 
@@ -98,6 +101,7 @@ public class Key : MonoBehaviour {
 
 		pressState = 0; // just to be sure
 		animating = false;
+		isPressed = false;
 	}
 
 	//public float timeUntilPressed { get => GetTimeUntilPressed(); }
