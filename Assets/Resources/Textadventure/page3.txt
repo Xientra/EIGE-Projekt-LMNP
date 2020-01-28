@@ -1,6 +1,5 @@
-You're also freezing, which angers you, as if dealing with the utter absence of daylight wasn't enough.
-A flickering beacon barely lights up two hallways in front of you - which one do you take?
+A defiant one, apparently. Let's see where this gets you in this world...
+
+Input the following to move on:
 #
-left>4
-#
-right>4
+I am sorry.>4

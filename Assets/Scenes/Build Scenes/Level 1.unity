@@ -1133,8 +1133,8 @@ MonoBehaviour:
   inputText: {fileID: 1522278860}
   pageText: {fileID: 1800893233}
   answersText: {fileID: 642607844}
-  firstPage: 1
-  lastPage: 5
+  firstPage: 0
+  lastPage: 4
 --- !u!114 &1500010203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,7 +1558,7 @@ PrefabInstance:
     - target: {fileID: 5546822681655689961, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05
+      value: -23.1
       objectReference: {fileID: 0}
     - target: {fileID: 5546822681655689961, guid: 817206b7fe2caf046b4e24c50882c99b,
         type: 3}

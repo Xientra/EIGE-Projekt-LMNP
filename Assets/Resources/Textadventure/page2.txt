@@ -1,5 +1,5 @@
-It's the middle of the night, judging by the sign telling you that the last ride home passed mere minutes ago. 
+Okay, this concludes your training. Please hand in a copy of your own, original programming language by tomorrow afternoon.
 #
-What now?>4
+Ouch.>4
 #
-Look around.>3
+Okay then, boss.>4

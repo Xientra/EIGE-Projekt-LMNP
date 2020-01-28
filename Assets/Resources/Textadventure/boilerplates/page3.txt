@@ -1,0 +1,6 @@
+You're also freezing, which angers you, as if dealing with the utter absence of daylight wasn't enough.
+A flickering beacon barely lights up two hallways in front of you - which one do you take?
+#
+left>4
+#
+right>4

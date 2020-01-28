@@ -32,7 +32,7 @@ public class TextadventureMode : CameraManagement, GameMode {
     // used in ProcessInput()
     List<KeyCode> letterKeys = new List<KeyCode>() {
         KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z,
-        KeyCode.Space, KeyCode.Question, KeyCode.Exclaim, KeyCode.Period, KeyCode.Comma
+        KeyCode.Space, KeyCode.Question, KeyCode.Exclaim, KeyCode.Period, KeyCode.Comma, KeyCode.Semicolon, KeyCode.Quote, KeyCode.LeftBracket, KeyCode.RightBracket
     };
 
     KeyCode[] numberKeys = {
@@ -153,6 +153,18 @@ public class TextadventureMode : CameraManagement, GameMode {
                     break;
                 case KeyCode.Comma:
                     AddLetter(',');
+                    break;
+                case KeyCode.Semicolon:
+                     AddLetter(';');
+                     break;
+                case KeyCode.Quote:
+                    AddLetter('"');
+                    break;
+                case KeyCode.LeftBracket:
+                    AddLetter('(');
+                    break;
+                case KeyCode.RightBracket:
+                    AddLetter(')');
                     break;
                 default:
                     char letter = char.Parse(keyCode.ToString());

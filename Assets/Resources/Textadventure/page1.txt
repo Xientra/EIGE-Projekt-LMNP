@@ -1,4 +1,5 @@
-You find yourself in a deserted subway station. 
-Yet, you appear to have no recollection of how you got here whatsoever - did you hit your head? 
+Welcome to your new Job, Programmer01567. What will your first lines of code be?
 #
-Maybe?>2
+"Hello World!">2
+#
+System.exit(0);>3
