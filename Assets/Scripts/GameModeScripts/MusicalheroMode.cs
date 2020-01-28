@@ -22,7 +22,7 @@ public class MusicalheroMode : CameraManagement, GameMode {
     [SerializeField]
     private int thirdPoints = 50;
     [SerializeField]
-    private int penalty = 75;
+    private int penaltyPoints = 75;
 
     private float[] firstZone;
     private float[] secondZone;
@@ -37,11 +37,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
 			// let keys fall from the sky continously
 			keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
 		}
-		
-		int penaltyPoints = scene.getPenaltyPoints();
-        if (penaltyPoints != 0) {
-            UpdateScore(penaltyPoints);
-        }
     }
 
     private int DecidePoints(float position) {
@@ -109,9 +104,9 @@ public class MusicalheroMode : CameraManagement, GameMode {
         firstZone = scene.GetFirstZone();
         secondZone = scene.GetSecondZone();
         thirdZone = scene.GetThirdZone();
-        scene.SetPenalty(penalty);
 
-        UpdateScore(0);
+        MusicalheroScore.Instance.SetPenalty(penaltyPoints);
+        MusicalheroScore.Instance.AddPoints(0);
     }
 
     public void CloseScene() {

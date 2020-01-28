@@ -11,9 +11,6 @@ public class MusicalheroScene : MonoBehaviour {
     [SerializeField]
     private GameObject thirdRange;
 
-    [SerializeField]
-    private int penaltyPoints = 100;
-
     private List<GameObject> visibleKeys = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
@@ -26,7 +23,7 @@ public class MusicalheroScene : MonoBehaviour {
         visibleKeys.Remove(other.gameObject);
         Debug.Log("Key left: " + other.gameObject.ToString());
 
-        MusicalheroScore.Instance.DeductPoints(penaltyPoints);
+        MusicalheroScore.Instance.DeductPoints();
         Destroy(other.gameObject);
     }
 

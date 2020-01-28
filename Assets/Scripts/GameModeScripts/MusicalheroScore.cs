@@ -9,6 +9,7 @@ public class MusicalheroScore : MonoBehaviour {
     private TextMeshProUGUI scoreboard;
 
     private int score;
+    private int penalty;
 
     public static MusicalheroScore Instance { get; set; }
 
@@ -18,13 +19,17 @@ public class MusicalheroScore : MonoBehaviour {
         }
     }
 
+    public void SetPenalty(int penalty) {
+        this.penalty = penalty;
+    }
+
     public void AddPoints(int points) {
         score += points;
         UpdateScoreboard();
     }
 
-    public void DeductPoints(int points) {
-        score -= points;
+    public void DeductPoints() {
+        score -= penalty;
         UpdateScoreboard();
     }
 
