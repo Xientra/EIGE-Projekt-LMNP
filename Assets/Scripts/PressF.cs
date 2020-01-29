@@ -7,7 +7,9 @@ public class PressF : MonoBehaviour
     private bool canBeEnded = false;
     private bool swappedScreen = false;
     [SerializeField]
-    private GameObject endScreen;
+    private GameObject Cube001;
+    [SerializeField]
+    private Material endScreen;
     [SerializeField]
     KeyCode exitKey = KeyCode.Escape;
 
@@ -30,7 +32,7 @@ public class PressF : MonoBehaviour
     {
         if(!swappedScreen)
         {
-            endScreen.SetActive(true);
+            Cube001.GetComponent<MeshRenderer>().material = endScreen;
             swappedScreen = true;
             canBeEnded = true;
         }
