@@ -54,25 +54,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
         }
     }
 
-    // asesses if suitable GameObject is in camera's field of view 
-    private bool isInFOV(KeyCode keyCode, out GameObject key) {
-        List<GameObject> visible = scene.GetVisibleKeys();
-        Debug.Log(visible.Count);
-
-        foreach (GameObject obj in visible) {
-            Debug.Log(obj.ToString());
-            if (obj.ToString() == keyCode.ToString()) {
-                visible.Remove(obj);
-                key = obj;
-                return true;
-            }
-        }
-
-        // nothing found
-        key = null;
-        return false;
-    }
-
     /*private void LoadTrack(string name) {
         currentTrack = Resources.Load<AudioClip>("Musicalhero/" + name);
     }
@@ -86,14 +67,14 @@ public class MusicalheroMode : CameraManagement, GameMode {
 
     public void ProcessInput(KeyCode keyCode) {
         Debug.Log("Processing...");
+
         GameObject keyObj;
-        if (isInFOV(keyCode, out keyObj)) {
+        if (scene.isVisible(keyCode, out keyObj)) {
+
             float position = keyObj.transform.position.y;
             int points = DecidePoints(position);
             MusicalheroScore.Instance.AddPoints(points);
 
-            Destroy(keyObj);
-            Debug.Log("Destroyed!");
             //Keyboard.instance.LetKeyFall(keyCode); TODO
         }
 	}
