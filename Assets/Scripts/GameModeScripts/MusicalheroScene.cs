@@ -11,6 +11,7 @@ public class MusicalheroScene : MonoBehaviour {
     [SerializeField]
     private GameObject thirdRange;
 
+    [SerializeField]
     private List<GameObject> visibleKeys = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
@@ -27,10 +28,26 @@ public class MusicalheroScene : MonoBehaviour {
         Destroy(other.gameObject);
     }
 
-    public List<GameObject> GetVisibleKeys() {
-        return visibleKeys;
+    // asesses if a matching GameObject is in camera's field of view 
+    public bool isVisible(KeyCode keyCode, out GameObject key) {
+  
+        foreach (GameObject obj in visibleKeys) {
+
+            // found one
+            if (obj.name == "MusicKey " + keyCode.ToString()) {
+                key = obj;
+                visibleKeys.Remove(obj);
+                Destroy(obj);
+                return true;
+            }
+        }
+
+        // nothing found
+        key = null;
+        return false;
     }
 
+    // takes transform values of a GameObject to calculate y-values
     private float[] CalculateLimits(GameObject range) {
 
         Renderer r = range.GetComponent<Renderer>();
