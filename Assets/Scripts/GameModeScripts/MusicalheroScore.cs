@@ -7,7 +7,11 @@ public class MusicalheroScore : MonoBehaviour {
 
     [SerializeField]
     private TextMeshProUGUI scoreboard;
+    [SerializeField]
+    private TextMeshProUGUI results;
 
+    [SerializeField]
+    private int highscore;
     private int score;
     private int penalty;
 
@@ -35,5 +39,10 @@ public class MusicalheroScore : MonoBehaviour {
 
     private void UpdateScoreboard() {
         scoreboard.text = score.ToString();
+    }
+
+    public void ShowResults() {
+        Debug.Log("Da!");
+        results.text = "You scored:\n" + score + "/" + highscore;
     }
 }

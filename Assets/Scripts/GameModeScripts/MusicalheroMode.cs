@@ -32,16 +32,25 @@ public class MusicalheroMode : CameraManagement, GameMode {
 	[SerializeField]
 	private AudioClip currentTrack;
 
+    private bool notAtStart = false;
+
     void Update() {
 		if (AudioManager.instance.tetrisTheme.isPlaying == true) {
 			// let keys fall from the sky continously
 			keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
-		}
-        if (keyChain.transform.childCount == 0) {
-            // show score 
-            // wait 
-            //GameModeManager.Instance.NextScene();
+            notAtStart = true;
+
+		} else {
+            if (notAtStart) {
+                StartCoroutine(ShowFinalScore());
+                GameModeManager.Instance.NextScene();
+            }
         }
+    }
+
+    private IEnumerator ShowFinalScore() {
+        MusicalheroScore.Instance.ShowResults();
+        yield return new WaitForSeconds(30);
     }
 
     private int DecidePoints(float position) {
@@ -71,8 +80,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
     }*/
 
     public void ProcessInput(KeyCode keyCode) {
-        Debug.Log("Processing...");
-
         GameObject keyObj;
         if (scene.isVisible(keyCode, out keyObj)) {
 
@@ -80,7 +87,7 @@ public class MusicalheroMode : CameraManagement, GameMode {
             int points = DecidePoints(position);
             MusicalheroScore.Instance.AddPoints(points);
 
-            //Keyboard.instance.LetKeyFall(keyCode); TODO
+            //Keyboard.instance.LetKeyFall(keyCode);
         }
 	}
 
@@ -102,7 +109,6 @@ public class MusicalheroMode : CameraManagement, GameMode {
     override public string ToString() {
         return "Musicalhero";
     }
-
 
 	/* -----------------------=== Debug Stuff Paul did ===----------------------- */
 
