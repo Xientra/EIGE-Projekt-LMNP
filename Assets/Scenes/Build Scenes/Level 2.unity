@@ -624,7 +624,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 93742662}
-  - component: {fileID: 93742664}
   - component: {fileID: 93742663}
   m_Layer: 8
   m_Name: MusicKey D
@@ -662,19 +661,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &93742664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93742661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 100
 --- !u!1 &97046831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1223,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 171052705}
-  - component: {fileID: 171052707}
   - component: {fileID: 171052706}
   m_Layer: 8
   m_Name: MusicKey U
@@ -1275,19 +1260,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &171052707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171052704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 117
 --- !u!1 &184286093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,7 +1350,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 201920799}
-  - component: {fileID: 201920801}
   - component: {fileID: 201920800}
   m_Layer: 8
   m_Name: MusicKey M
@@ -1416,19 +1387,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &201920801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201920798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 109
 --- !u!1 &203415861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,10 +1477,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 221717522}
-  - component: {fileID: 221717524}
   - component: {fileID: 221717523}
   m_Layer: 8
-  m_Name: MusicKey 7
+  m_Name: MusicKey Alpha7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1557,19 +1514,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &221717524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221717521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 0
 --- !u!1 &235437342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1756,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 261816271}
-  - component: {fileID: 261816273}
   - component: {fileID: 261816272}
   m_Layer: 8
   m_Name: MusicKey Z
@@ -1850,19 +1793,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &261816273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261816270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 122
 --- !u!1 &289133521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,7 +1957,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291344532}
-  - component: {fileID: 291344534}
   - component: {fileID: 291344533}
   m_Layer: 8
   m_Name: MusicKey H
@@ -2065,19 +1994,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &291344534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291344531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 104
 --- !u!1 &296761255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3489,7 +3405,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 535395145}
-  - component: {fileID: 535395147}
   - component: {fileID: 535395146}
   m_Layer: 8
   m_Name: MusicKey L
@@ -3527,19 +3442,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &535395147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535395144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 108
 --- !u!1 &543405919
 GameObject:
   m_ObjectHideFlags: 0
@@ -3633,10 +3535,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 579790120}
-  - component: {fileID: 579790122}
   - component: {fileID: 579790121}
   m_Layer: 8
-  m_Name: MusicKey 2
+  m_Name: MusicKey Alpha2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3671,19 +3572,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &579790122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579790119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 50
 --- !u!1 &586202965
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,7 +3581,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 586202966}
-  - component: {fileID: 586202968}
   - component: {fileID: 586202967}
   m_Layer: 8
   m_Name: MusicKey G
@@ -3731,19 +3618,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &586202968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586202965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 103
 --- !u!1 &598740726
 GameObject:
   m_ObjectHideFlags: 0
@@ -4219,7 +4093,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 637296245}
-  - component: {fileID: 637296247}
   - component: {fileID: 637296246}
   m_Layer: 8
   m_Name: MusicKey P
@@ -4257,19 +4130,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &637296247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637296244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 112
 --- !u!1 &643441387
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,7 +4205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 662550246}
-  - component: {fileID: 662550248}
   - component: {fileID: 662550247}
   m_Layer: 8
   m_Name: MusicKey Q
@@ -4383,19 +4242,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &662550248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662550245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 55
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,7 +4317,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.9358e-41, y: 1.05e-43, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -8985.453}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4677,7 +4523,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 715448939}
-  - component: {fileID: 715448941}
   - component: {fileID: 715448940}
   m_Layer: 8
   m_Name: MusicKey M
@@ -4715,19 +4560,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &715448941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715448938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 109
 --- !u!1 &726713807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,7 +4897,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 779235948}
-  - component: {fileID: 779235950}
   - component: {fileID: 779235949}
   m_Layer: 8
   m_Name: MusicKey J
@@ -5103,19 +4934,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &779235950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779235947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 106
 --- !u!1 &784746717
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,7 +5301,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 818428386}
-  - component: {fileID: 818428388}
   - component: {fileID: 818428387}
   m_Layer: 8
   m_Name: MusicKey O
@@ -5521,19 +5338,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &818428388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818428385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 111
 --- !u!1 &823208967
 GameObject:
   m_ObjectHideFlags: 0
@@ -5698,10 +5502,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 835824698}
-  - component: {fileID: 835824700}
   - component: {fileID: 835824699}
   m_Layer: 8
-  m_Name: MusicKey 4
+  m_Name: MusicKey Alpha4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5736,19 +5539,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &835824700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835824697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 52
 --- !u!1 &837171142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5758,7 +5548,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 837171143}
-  - component: {fileID: 837171145}
   - component: {fileID: 837171144}
   m_Layer: 8
   m_Name: MusicKey N
@@ -5796,19 +5585,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &837171145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837171142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 110
 --- !u!1 &853035784
 GameObject:
   m_ObjectHideFlags: 0
@@ -5820,7 +5596,6 @@ GameObject:
   - component: {fileID: 853035789}
   - component: {fileID: 853035787}
   - component: {fileID: 853035785}
-  - component: {fileID: 853035786}
   - component: {fileID: 853035790}
   - component: {fileID: 853035788}
   m_Layer: 0
@@ -5842,21 +5617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1848875d4441342b544144164f6193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &853035786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853035784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1163aabcb10aea4eab22f77bbc2ffd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstRange: {fileID: 1581381299}
-  secondRange: {fileID: 557965243}
-  thirdRange: {fileID: 1763232791}
 --- !u!114 &853035787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5871,7 +5631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1410632817}
   target: {fileID: 8400000, guid: a10f6fe5febba2340bc44a32f48c8954, type: 2}
-  scene: {fileID: 853035786}
+  scene: {fileID: 1661328559}
   keyChain: {fileID: 643441387}
   keySpeed: 1
   firstPoints: 50
@@ -6473,7 +6233,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 892096702}
-  - component: {fileID: 892096704}
   - component: {fileID: 892096703}
   m_Layer: 8
   m_Name: MusicKey Space
@@ -6511,19 +6270,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &892096704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892096701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 32
 --- !u!1 &912043836
 GameObject:
   m_ObjectHideFlags: 0
@@ -6924,7 +6670,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967047974}
-  - component: {fileID: 967047976}
   - component: {fileID: 967047975}
   m_Layer: 8
   m_Name: MusicKey Y
@@ -6962,19 +6707,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &967047976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967047973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 121
 --- !u!1 &981375062
 GameObject:
   m_ObjectHideFlags: 0
@@ -6984,10 +6716,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981375063}
-  - component: {fileID: 981375065}
   - component: {fileID: 981375064}
   m_Layer: 8
-  m_Name: MusicKey 3
+  m_Name: MusicKey Alpha3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7022,19 +6753,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &981375065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981375062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 51
 --- !u!1 &997372281
 GameObject:
   m_ObjectHideFlags: 0
@@ -7948,10 +7666,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1057702793}
-  - component: {fileID: 1057702795}
   - component: {fileID: 1057702794}
   m_Layer: 8
-  m_Name: MusicKey 8
+  m_Name: MusicKey Alpha8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7986,19 +7703,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1057702795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1057702792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 56
 --- !u!1 &1059871097
 GameObject:
   m_ObjectHideFlags: 0
@@ -8008,10 +7712,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1059871098}
-  - component: {fileID: 1059871100}
   - component: {fileID: 1059871099}
   m_Layer: 8
-  m_Name: MusicKey 6
+  m_Name: MusicKey Alpha6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8046,19 +7749,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1059871100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059871097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 54
 --- !u!1 &1065465550
 GameObject:
   m_ObjectHideFlags: 0
@@ -8832,7 +8522,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1132979244}
-  - component: {fileID: 1132979246}
   - component: {fileID: 1132979245}
   m_Layer: 8
   m_Name: MusicKey B
@@ -8870,19 +8559,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1132979246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132979243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 98
 --- !u!1 &1139537328
 GameObject:
   m_ObjectHideFlags: 0
@@ -10172,7 +9848,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1284670607}
-  - component: {fileID: 1284670609}
   - component: {fileID: 1284670608}
   m_Layer: 8
   m_Name: MusicKey N
@@ -10210,19 +9885,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1284670609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284670606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 110
 --- !u!1 &1287311052
 GameObject:
   m_ObjectHideFlags: 0
@@ -10850,7 +10512,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1396740472}
-  - component: {fileID: 1396740474}
   - component: {fileID: 1396740473}
   m_Layer: 8
   m_Name: MusicKey Space
@@ -10888,19 +10549,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1396740474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1396740471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 32
 --- !u!1 &1407913371
 GameObject:
   m_ObjectHideFlags: 0
@@ -12088,7 +11736,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577739599}
-  - component: {fileID: 1577739601}
   - component: {fileID: 1577739600}
   m_Layer: 8
   m_Name: MusicKey A
@@ -12126,19 +11773,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1577739601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1577739598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 97
 --- !u!1 &1581381299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1303762479513956657, guid: 4a6e318a59057664d9964a95c59d77da,
@@ -12467,9 +12101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1163aabcb10aea4eab22f77bbc2ffd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstRange: {fileID: 0}
-  secondRange: {fileID: 0}
-  thirdRange: {fileID: 0}
+  firstRange: {fileID: 1581381299}
+  secondRange: {fileID: 557965243}
+  thirdRange: {fileID: 1763232791}
+  visibleKeys: []
 --- !u!54 &1661328560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12494,7 +12129,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661328558}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -12568,7 +12203,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1662589690}
-  - component: {fileID: 1662589692}
   - component: {fileID: 1662589691}
   m_Layer: 8
   m_Name: MusicKey V
@@ -12606,19 +12240,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1662589692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662589689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 118
 --- !u!1 &1667430648
 GameObject:
   m_ObjectHideFlags: 0
@@ -13124,7 +12745,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1749341757}
-  - component: {fileID: 1749341759}
   - component: {fileID: 1749341758}
   m_Layer: 8
   m_Name: MusicKey S
@@ -13162,19 +12782,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1749341759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1749341756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 115
 --- !u!1 &1749673662
 GameObject:
   m_ObjectHideFlags: 0
@@ -13666,10 +13273,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792363784}
-  - component: {fileID: 1792363786}
   - component: {fileID: 1792363785}
   m_Layer: 8
-  m_Name: MusicKey 0
+  m_Name: MusicKey Alpha0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13704,19 +13310,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1792363786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792363783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 48
 --- !u!1 &1794348484
 GameObject:
   m_ObjectHideFlags: 0
@@ -13888,7 +13481,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866233064}
-  - component: {fileID: 1866233066}
   - component: {fileID: 1866233065}
   m_Layer: 8
   m_Name: MusicKey H
@@ -13926,19 +13518,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1866233066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866233063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 104
 --- !u!1 &1868108531
 GameObject:
   m_ObjectHideFlags: 0
@@ -14103,7 +13682,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1874791409}
-  - component: {fileID: 1874791411}
   - component: {fileID: 1874791410}
   m_Layer: 8
   m_Name: MusicKey Z
@@ -14141,19 +13719,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1874791411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874791408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 122
 --- !u!1 &1889695908
 GameObject:
   m_ObjectHideFlags: 0
@@ -14593,7 +14158,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974550884}
-  - component: {fileID: 1974550886}
   - component: {fileID: 1974550885}
   m_Layer: 8
   m_Name: MusicKey C
@@ -14631,19 +14195,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1974550886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974550883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 99
 --- !u!1 &1986669845
 GameObject:
   m_ObjectHideFlags: 0
@@ -14653,7 +14204,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1986669846}
-  - component: {fileID: 1986669848}
   - component: {fileID: 1986669847}
   m_Layer: 8
   m_Name: MusicKey N
@@ -14691,19 +14241,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1986669848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986669845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 110
 --- !u!1 &2017684402
 GameObject:
   m_ObjectHideFlags: 0
@@ -15071,7 +14608,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061758711}
-  - component: {fileID: 2061758713}
   - component: {fileID: 2061758712}
   m_Layer: 8
   m_Name: MusicKey E
@@ -15109,19 +14645,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2061758713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061758710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 101
 --- !u!1 &2071373231
 GameObject:
   m_ObjectHideFlags: 0
@@ -15131,7 +14654,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2071373232}
-  - component: {fileID: 2071373234}
   - component: {fileID: 2071373233}
   m_Layer: 8
   m_Name: MusicKey H
@@ -15169,19 +14691,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2071373234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071373231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 104
 --- !u!1 &2082410541
 GameObject:
   m_ObjectHideFlags: 0
@@ -15191,7 +14700,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2082410542}
-  - component: {fileID: 2082410544}
   - component: {fileID: 2082410543}
   m_Layer: 8
   m_Name: MusicKey V
@@ -15229,19 +14737,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2082410544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082410541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 118
 --- !u!1 &2095405601
 GameObject:
   m_ObjectHideFlags: 0
@@ -15649,7 +15144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2143148286}
-  - component: {fileID: 2143148288}
   - component: {fileID: 2143148287}
   m_Layer: 8
   m_Name: MusicKey D
@@ -15687,19 +15181,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2143148288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143148285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292b807338c8fbe4da2208f008a26584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 100
 --- !u!1001 &5546822682395275119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15906,6 +15387,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1314007185320082459, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314007185320082459, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324649792459319991, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324649792459319991, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2324649792459319991, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6458615659899818182, guid: 2b239e2de42ba5b428ffdbfb918d6044,
         type: 3}
       propertyPath: m_Name
@@ -15965,6 +15471,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854363396152097663, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854363396152097663, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385593394660973406, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385593394660973406, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385593394660973406, guid: 2b239e2de42ba5b428ffdbfb918d6044,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b239e2de42ba5b428ffdbfb918d6044, type: 3}

@@ -37,6 +37,11 @@ public class MusicalheroMode : CameraManagement, GameMode {
 			// let keys fall from the sky continously
 			keyChain.transform.Translate(Vector3.down * keySpeed * Time.deltaTime);
 		}
+        if (keyChain.transform.childCount == 0) {
+            // show score 
+            // wait 
+            //GameModeManager.Instance.NextScene();
+        }
     }
 
     private int DecidePoints(float position) {

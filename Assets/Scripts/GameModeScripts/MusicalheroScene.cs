@@ -11,6 +11,7 @@ public class MusicalheroScene : MonoBehaviour {
     [SerializeField]
     private GameObject thirdRange;
 
+    [SerializeField]
     private List<GameObject> visibleKeys = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other) {
@@ -30,11 +31,10 @@ public class MusicalheroScene : MonoBehaviour {
     // asesses if a matching GameObject is in camera's field of view 
     public bool isVisible(KeyCode keyCode, out GameObject key) {
   
-        Debug.Log(visibleKeys.Count);
-
         foreach (GameObject obj in visibleKeys) {
+
             // found one
-            if (obj.ToString() == keyCode.ToString()) {
+            if (obj.name == "MusicKey " + keyCode.ToString()) {
                 key = obj;
                 visibleKeys.Remove(obj);
                 Destroy(obj);
