@@ -12,7 +12,10 @@ public class HookCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        grapplingHook.collidedObject = other.gameObject;
-        grapplingHook.collisionDetected = true;
+        if (!other.tag.Equals("NotHookable"))
+        {
+            grapplingHook.collidedObject = other.gameObject;
+            grapplingHook.collisionDetected = true;
+        }
     }
 }
